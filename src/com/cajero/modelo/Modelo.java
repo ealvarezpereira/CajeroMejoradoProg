@@ -7,7 +7,6 @@ package com.cajero.modelo;
 
 import com.cajero.libreria.ConexionesBD;
 import java.sql.SQLException;
-import java.text.DecimalFormat;
 import javax.swing.JOptionPane;
 
 /**
