@@ -5,6 +5,8 @@
  */
 package cajeromejorado;
 
+import com.cajero.vista.InterfazInicioSesion;
+
 /**
  *
  * @author quique
@@ -15,7 +17,8 @@ public class CajeroMejorado {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        InterfazInicioSesion ses = new InterfazInicioSesion();
+        ses.setVisible(true);
     }
     
 }
