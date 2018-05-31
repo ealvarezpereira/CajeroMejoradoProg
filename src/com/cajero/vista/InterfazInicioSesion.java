@@ -51,6 +51,11 @@ public class InterfazInicioSesion extends javax.swing.JFrame {
         bSalir.setText("Salir");
 
         bRegistrarse.setText("Registrarse");
+        bRegistrarse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bRegistrarseActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel1.setText("¿Quieres crear una cuenta?");
@@ -126,6 +131,12 @@ public class InterfazInicioSesion extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void bRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRegistrarseActionPerformed
+        InterfazRegistrar obx=new InterfazRegistrar();
+        obx.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_bRegistrarseActionPerformed
 
     /**
      * @param args the command line arguments
