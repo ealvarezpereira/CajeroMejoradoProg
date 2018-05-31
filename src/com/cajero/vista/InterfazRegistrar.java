@@ -5,12 +5,15 @@
  */
 package com.cajero.vista;
 
+import com.cajero.controlador.Controlador;
+
 /**
  *
  * @author David
  */
 public class InterfazRegistrar extends javax.swing.JFrame {
 
+    Controlador objControlador = new Controlador();
     /**
      * Creates new form InterfazRegistrar
      */
@@ -58,6 +61,11 @@ public class InterfazRegistrar extends javax.swing.JFrame {
         etApellido.setText("Apellido:");
 
         bRegistrarse.setText("Registrarse");
+        bRegistrarse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bRegistrarseActionPerformed(evt);
+            }
+        });
 
         bSalir.setText("Salir");
 
@@ -141,6 +149,10 @@ public class InterfazRegistrar extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void bRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRegistrarseActionPerformed
+        objControlador.registrarUsuario(jTextUsuario.getText(), jPassword.getText(), jTextNombre.getText(), jTextApellido.getText());
+    }//GEN-LAST:event_bRegistrarseActionPerformed
 
     /**
      * @param args the command line arguments
