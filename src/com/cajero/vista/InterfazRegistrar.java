@@ -14,6 +14,7 @@ import com.cajero.controlador.Controlador;
 public class InterfazRegistrar extends javax.swing.JFrame {
 
     Controlador objControlador = new Controlador();
+    InterfazInicioSesion obxI = new InterfazInicioSesion();
     /**
      * Creates new form InterfazRegistrar
      */
@@ -68,6 +69,11 @@ public class InterfazRegistrar extends javax.swing.JFrame {
         });
 
         bSalir.setText("Salir");
+        bSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bSalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelLayout = new javax.swing.GroupLayout(jPanel);
         jPanel.setLayout(jPanelLayout);
@@ -149,6 +155,11 @@ public class InterfazRegistrar extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
+        obxI.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_bSalirActionPerformed
 
     private void bRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRegistrarseActionPerformed
         objControlador.registrarUsuario(jTextUsuario.getText(), jPassword.getText(), jTextNombre.getText(), jTextApellido.getText());

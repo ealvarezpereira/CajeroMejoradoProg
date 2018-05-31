@@ -22,4 +22,16 @@ public class Modelo {
         String url = "jdbc:sqlite:" + "cajero.db";
         db.conexionBase(url);
     }
+    
+    public void registrarUsuario(String usuario,String ctra,String nombre, String apellido){
+    
+        String id = "ES34";
+        
+        String sentencia = "insert into usuario values ("+"'"+id+"', "+"'"+usuario+"', "+"'"+ctra
+                +"', "+"'"+nombre+"', "+"'"+apellido+"');";
+        
+        db.preparedStatement(sentencia);
+        
+        
+    }  
 }
