@@ -38,7 +38,7 @@ public class Modelo {
         //Si existe = true, quiere deicr que el usuario existe en la base de datos.
         boolean existe = false;
         try {
-            String id = "ES34" + String.valueOf((int)Math.random()*(1000-1));
+            String id = "ES34" + String.valueOf((int) (Math.random() * (1000) + 1));
             String consultaUsuario = "select usuario from usuario";
             db.resultSet(consultaUsuario);
 
@@ -58,8 +58,7 @@ public class Modelo {
             } else {
                 String sentencia = "insert into usuario values (" + "'" + id + "', " + "'" + usuario + "', " + "'" + ctra
                         + "', " + "'" + nombre + "', " + "'" + apellido + "');";
-                JOptionPane.showMessageDialog(null, sentencia);
-                //db.preparedStatement(sentencia);
+                db.preparedStatement(sentencia);
             }
             
         } catch (SQLException ex) {
