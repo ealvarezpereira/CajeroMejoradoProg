@@ -17,6 +17,7 @@ public class CajeroMejorado {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
         InterfazCajero ses = new InterfazCajero();
         ses.setVisible(true);
     }

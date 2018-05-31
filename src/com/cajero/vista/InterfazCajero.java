@@ -5,7 +5,7 @@
  */
 package com.cajero.vista;
 
-import javax.swing.JPanel;
+import com.cajero.controlador.Controlador;
 
 /**
  *
@@ -13,11 +13,13 @@ import javax.swing.JPanel;
  */
 public class InterfazCajero extends javax.swing.JFrame {
 
+    Controlador objControlador = new Controlador();
     /**
      * Creates new form InterfazCajero
      */
     public InterfazCajero() {
         initComponents();
+        conexionBD();
     }
 
     /**
@@ -345,6 +347,11 @@ public class InterfazCajero extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void conexionBD(){
+    objControlador.conexionBD();
+    }
+    
+    
     private void bIntroducirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bIntroducirActionPerformed
 //        bIntroducir.hide();
         bRetirar.hide();

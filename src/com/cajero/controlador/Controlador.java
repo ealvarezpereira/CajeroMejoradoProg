@@ -15,6 +15,10 @@ public class Controlador {
     
     Modelo objModelo = new Modelo();
     
+    public void conexionBD(){
+        objModelo.conexionBD();
+    }
+    
     public void registrarUsuario(String usuario, String ctra, String nombre, String apellido){
         objModelo.registrarUsuario(usuario, ctra, nombre, apellido);
     }
