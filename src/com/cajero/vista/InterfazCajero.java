@@ -179,6 +179,11 @@ public class InterfazCajero extends javax.swing.JFrame {
         etInsertarBilletes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cajero/images/imagenBilletes.png"))); // NOI18N
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Introducir dinero", "Retirar dinero", "Mostrar saldo", "Transferencia bancaria", "Darse de baja", " " }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -393,6 +398,10 @@ public class InterfazCajero extends javax.swing.JFrame {
         completo=completo+bot;
         this.jTextPrueba.setText(completo);
     }//GEN-LAST:event_bCeroActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        dispose();
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**
      * @param args the command line arguments
