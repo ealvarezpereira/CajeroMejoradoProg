@@ -113,11 +113,15 @@ public class Modelo {
         }
     }
     
-    public void insertarDinero(int dinero){
+    public void insertarDinero(String dinero){
        
        String sentenciaDineroActual="select saldo from saldo where id='"+id+"';";
+//        int dinero1=Integer.parseInt(sentenciaDineroActual);
+        int dinero2=Integer.parseInt(dinero);
+       String sentenciaDineroIntroducido = "update saldo set saldo='"+(sentenciaDineroActual+dinero2)+"' where id='"+id+"';";
+       db.preparedStatement(sentenciaDineroActual);
+       db.preparedStatement(sentenciaDineroIntroducido);
        
-       String sentenciaDineroIntroducido = "update saldo set saldo='"+(sentenciaDineroActual+dinero)+"' where id='"+id+"';";
        
        
       
