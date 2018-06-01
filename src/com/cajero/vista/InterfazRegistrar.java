@@ -20,6 +20,7 @@ public class InterfazRegistrar extends javax.swing.JFrame {
      */
     public InterfazRegistrar() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
