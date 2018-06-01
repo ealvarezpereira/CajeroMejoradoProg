@@ -112,4 +112,15 @@ public class Modelo {
             System.out.println("Error al sacar el id. " + ex);
         }
     }
+    
+    public void insertarDinero(int dinero){
+       
+       String sentenciaDineroActual="select saldo from saldo where id='"+id+"';";
+       
+       String sentenciaDineroIntroducido = "update saldo set saldo='"+(sentenciaDineroActual+dinero)+"' where id='"+id+"';";
+       
+       
+      
+   }
+    
 }
