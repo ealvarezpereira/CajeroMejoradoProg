@@ -22,4 +22,9 @@ public class Controlador {
     public void registrarUsuario(String usuario, String ctra, String nombre, String apellido){
         objModelo.registrarUsuario(usuario, ctra, nombre, apellido);
     }
+    
+    public void iniciarSesion(String usuario,String contr){
+        objModelo.iniciarSesion(usuario, contr);
+    }
+    
 }
