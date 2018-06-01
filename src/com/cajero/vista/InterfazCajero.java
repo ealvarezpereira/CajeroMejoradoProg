@@ -33,11 +33,7 @@ public class InterfazCajero extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        bIntroducir = new javax.swing.JButton();
-        bRetirar = new javax.swing.JButton();
-        bTransferencia = new javax.swing.JButton();
-        bSaldo = new javax.swing.JButton();
-        bDarseDeBaja = new javax.swing.JButton();
+        jTextPrueba = new javax.swing.JTextField();
         bUno = new javax.swing.JButton();
         bDos = new javax.swing.JButton();
         bTres = new javax.swing.JButton();
@@ -59,57 +55,29 @@ public class InterfazCajero extends javax.swing.JFrame {
         etImagenInsertar = new javax.swing.JLabel();
         bTarjeta = new javax.swing.JButton();
         etInsertarBilletes = new javax.swing.JLabel();
-        jTextPrueba = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(205, 205, 205));
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-
-        bIntroducir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cajero/images/introducirDineroOpcion.png"))); // NOI18N
-        bIntroducir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bIntroducirActionPerformed(evt);
-            }
-        });
-
-        bRetirar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cajero/images/retirarDineroOpcion.png"))); // NOI18N
-
-        bTransferencia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cajero/images/transferenciaOpcion.png"))); // NOI18N
-
-        bSaldo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cajero/images/mostrarSaldoOpciones.png"))); // NOI18N
-
-        bDarseDeBaja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cajero/images/darseDeBajaOpciones.png"))); // NOI18N
+        jPanel2.setBackground(new java.awt.Color(233, 233, 233));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(bDarseDeBaja, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bTransferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bRetirar, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bIntroducir, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(35, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(81, Short.MAX_VALUE)
+                .addComponent(jTextPrueba, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(73, 73, 73))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(bIntroducir, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(bRetirar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(bTransferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(bSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(bDarseDeBaja, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(45, 45, 45)
+                .addComponent(jTextPrueba, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(221, Short.MAX_VALUE))
         );
 
         bUno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cajero/images/unoBoton.png"))); // NOI18N
@@ -209,6 +177,8 @@ public class InterfazCajero extends javax.swing.JFrame {
 
         etInsertarBilletes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cajero/images/imagenBilletes.png"))); // NOI18N
 
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Introducir dinero", "Retirar dinero", "Mostrar saldo", "Transferencia bancaria", "Darse de baja", " " }));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -216,21 +186,24 @@ public class InterfazCajero extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btIntroducir, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btRetirar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btTransferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btDarseBaja, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(37, 37, 37)
+                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btIntroducir, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btRetirar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btTransferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btDarseBaja, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(77, 77, 77)
+                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(87, 87, 87)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(etImagenInsertar)
-                                    .addComponent(jTextPrueba, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(etImagenInsertar))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(bTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -275,8 +248,8 @@ public class InterfazCajero extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addComponent(jTextPrueba, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(13, 13, 13)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -352,17 +325,6 @@ public class InterfazCajero extends javax.swing.JFrame {
     }
     
     
-    private void bIntroducirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bIntroducirActionPerformed
-//        bIntroducir.hide();
-        bRetirar.hide();
-        bTransferencia.hide();
-        bSaldo.hide();
-        bDarseDeBaja.hide();
-//        JPanel jPanelIntroducir=new JPanel();
-//        jPanelIntroducir.setVisible(true);
-//        jPanel2.add(jPanelIntroducir);
-    }//GEN-LAST:event_bIntroducirActionPerformed
-
     private void bTarjetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bTarjetaActionPerformed
         InterfazInicioSesion obx=new InterfazInicioSesion();
         obx.setVisible(true);
@@ -473,17 +435,12 @@ public class InterfazCajero extends javax.swing.JFrame {
     private javax.swing.JButton bCero;
     private javax.swing.JButton bCinco;
     private javax.swing.JButton bCuatro;
-    private javax.swing.JButton bDarseDeBaja;
     private javax.swing.JButton bDos;
-    private javax.swing.JButton bIntroducir;
     private javax.swing.JButton bNueve;
     private javax.swing.JButton bOcho;
-    private javax.swing.JButton bRetirar;
-    private javax.swing.JButton bSaldo;
     private javax.swing.JButton bSeis;
     private javax.swing.JButton bSiete;
     private javax.swing.JButton bTarjeta;
-    private javax.swing.JButton bTransferencia;
     private javax.swing.JButton bTres;
     private javax.swing.JButton bUno;
     private javax.swing.JButton btDarseBaja;
@@ -493,6 +450,7 @@ public class InterfazCajero extends javax.swing.JFrame {
     private javax.swing.JButton btTransferencia;
     private javax.swing.JLabel etImagenInsertar;
     private javax.swing.JLabel etInsertarBilletes;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField jTextPrueba;
