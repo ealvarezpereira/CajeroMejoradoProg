@@ -72,11 +72,16 @@ public class Modelo {
         db.resultSet(sentencia);
         
         try {
-            if(usu!=db.rs.getString(1) && contraseña!=db.rs.getString(2)){
+            if (!usu.equals("")) {
+                            if(usu==db.rs.getString(1) && contraseña==db.rs.getString(2)){
                 JOptionPane.showMessageDialog(null, "Sesión iniciada correctamente!", "Sesión inciada", JOptionPane.INFORMATION_MESSAGE, null);
             }else{
                 JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos.", "ERROR", JOptionPane.INFORMATION_MESSAGE, null);
             }
+            }else{
+                JOptionPane.showMessageDialog(null, "Campos vacíos.");
+            }
+
         } catch (SQLException ex) {
             System.out.println("ERROR SQL"+ex);        
         }        
