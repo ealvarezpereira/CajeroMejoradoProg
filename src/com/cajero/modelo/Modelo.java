@@ -66,14 +66,17 @@ public class Modelo {
         
     }
     
+    static String id;
     public void iniciarSesion(String usu,String contraseña){
         
-        String sentencia="select usuario,ctra from usuario;";
+        String sentencia="select id,usuario,ctra from usuario;";
+        String sentenciaID="select id from usuario where usuario='"+usu+"'";
         db.resultSet(sentencia);
         
         try {
+            id=db.rs.getString(1);
             if (!usu.equals("")) {
-                            if(usu==db.rs.getString(1) && contraseña==db.rs.getString(2)){
+                if(usu!=db.rs.getString(2) && contraseña!=db.rs.getString(3)){
                 JOptionPane.showMessageDialog(null, "Sesión iniciada correctamente!", "Sesión inciada", JOptionPane.INFORMATION_MESSAGE, null);
             }else{
                 JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos.", "ERROR", JOptionPane.INFORMATION_MESSAGE, null);
@@ -81,10 +84,14 @@ public class Modelo {
             }else{
                 JOptionPane.showMessageDialog(null, "Campos vacíos.");
             }
-
+            id=db.rs.getString(1);
+            System.out.println(id);
+            
         } catch (SQLException ex) {
             System.out.println("ERROR SQL"+ex);        
         }        
     }
+    
+    
     
 }
