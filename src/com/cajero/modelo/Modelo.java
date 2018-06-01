@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
  * @author quique
  */
 public class Modelo {
-    
+
     ConexionesBD db = new ConexionesBD();
 
     /**
@@ -51,7 +51,7 @@ public class Modelo {
                     }
                 }
             }
-            
+
             if (existe == true) {
                 usuario = JOptionPane.showInputDialog("Usuario existente.");
             } else {
@@ -59,39 +59,48 @@ public class Modelo {
                         + "', " + "'" + nombre + "', " + "'" + apellido + "');";
                 db.preparedStatement(sentencia);
             }
-            
+
         } catch (SQLException ex) {
             System.out.println("Error al sacar los usuarios de la tabla. Metodo registrarUsuario de la clase Modelo" + ex);
         }
-        
+
     }
-    
+
     static String id;
-    public void iniciarSesion(String usu,String contraseña){
-        
-        String sentencia="select id,usuario,ctra from usuario;";
-        String sentenciaID="select id from usuario where usuario='"+usu+"'";
+    boolean iniciado = false;
+
+    public void iniciarSesion(String usu, String contraseña) {
+
+        String sentencia = "select id,usuario,ctra from usuario;";
+        String sentenciaID = "select id from usuario where usuario='" + usu + "'";
         db.resultSet(sentencia);
-        
+
         try {
-            id=db.rs.getString(1);
-            if (!usu.equals("")) {
-                if(usu!=db.rs.getString(2) && contraseña!=db.rs.getString(3)){
+            id = db.rs.getString(1);
+            while (db.rs.next()) {
+                if (!usu.equals("")) {
+                    if (usu != db.rs.getString(2) && contraseña != db.rs.getString(3)) {
+                        iniciado = true;
+                    } else {
+                        iniciado = false;
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "Campos vacíos.");
+                }
+            }
+
+                            System.out.println(id);
+
+            if (iniciado == true) {
                 JOptionPane.showMessageDialog(null, "Sesión iniciada correctamente!", "Sesión inciada", JOptionPane.INFORMATION_MESSAGE, null);
-            }else{
+
+            } else {
                 JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos.", "ERROR", JOptionPane.INFORMATION_MESSAGE, null);
             }
-            }else{
-                JOptionPane.showMessageDialog(null, "Campos vacíos.");
-            }
-            id=db.rs.getString(1);
-            System.out.println(id);
             
         } catch (SQLException ex) {
-            System.out.println("ERROR SQL"+ex);        
-        }        
+            System.out.println("ERROR SQL" + ex);
+        }
     }
-    
-    
-    
+
 }
