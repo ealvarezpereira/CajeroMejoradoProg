@@ -27,7 +27,7 @@ public class Controlador {
         objModelo.iniciarSesion(usuario, contr);
     }
     
-    public void insertarDinero(int dinero){
+    public void insertarDinero(String dinero){
         objModelo.insertarDinero(dinero);
     }
     
