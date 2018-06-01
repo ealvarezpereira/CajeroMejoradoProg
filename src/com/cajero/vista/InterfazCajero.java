@@ -20,6 +20,7 @@ public class InterfazCajero extends javax.swing.JFrame {
     public InterfazCajero() {
         initComponents();
         conexionBD();
+        setLocationRelativeTo(null);
     }
 
     /**
