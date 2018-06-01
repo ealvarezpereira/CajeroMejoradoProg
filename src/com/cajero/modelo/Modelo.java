@@ -5,6 +5,7 @@
  */
 package com.cajero.modelo;
 
+import com.cajero.controlador.Controlador;
 import com.cajero.libreria.ConexionesBD;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
@@ -71,15 +72,12 @@ public class Modelo {
 
     public void iniciarSesion(String usu, String contraseña) {
 
-        String sentencia = "select id,usuario,ctra from usuario;";
-        String sentenciaID = "select id from usuario where usuario='" + usu + "'";
+        String sentencia = "select usuario,ctra from usuario;";
         db.resultSet(sentencia);
-
         try {
-            id = db.rs.getString(1);
             while (db.rs.next()) {
                 if (!usu.equals("")) {
-                    if (usu != db.rs.getString(2) && contraseña != db.rs.getString(3)) {
+                    if (usu != db.rs.getString(1) && contraseña != db.rs.getString(2)) {
                         iniciado = true;
                     } else {
                         iniciado = false;
@@ -89,18 +87,29 @@ public class Modelo {
                 }
             }
 
-                            System.out.println(id);
-
             if (iniciado == true) {
                 JOptionPane.showMessageDialog(null, "Sesión iniciada correctamente!", "Sesión inciada", JOptionPane.INFORMATION_MESSAGE, null);
-
             } else {
                 JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos.", "ERROR", JOptionPane.INFORMATION_MESSAGE, null);
             }
-            
+            db.rs.close();
+
+            sacarID(usu);
+
         } catch (SQLException ex) {
             System.out.println("ERROR SQL" + ex);
         }
     }
 
+    public void sacarID(String usu) {
+
+        try {
+            String sentenciaID = "select id from usuario where usuario='" + usu + "'";
+            db.resultSet(sentenciaID);
+            id = db.rs.getString(1);
+            System.out.println(id);
+        } catch (SQLException ex) {
+            System.out.println("Error al sacar el id. " + ex);
+        }
+    }
 }
