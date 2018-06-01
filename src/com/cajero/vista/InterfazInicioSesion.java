@@ -157,6 +157,9 @@ public class InterfazInicioSesion extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_bSalirActionPerformed
 
+    /*
+        Clase InterfazInicioSesion, recoge lo que puso el usuario en los jTextField. Y los recoge el metodo "iniciarSesion" de la Clase Controlador.
+    */
     private void bIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bIniciarSesionActionPerformed
         obxControlador.iniciarSesion(jTextUsuario.getText(), jPassword.getText());
     }//GEN-LAST:event_bIniciarSesionActionPerformed
