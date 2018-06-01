@@ -31,4 +31,7 @@ public class Controlador {
         objModelo.insertarDinero(dinero);
     }
     
+    public boolean mostrarComboBox(){
+       return Modelo.iniciado;
+    }
 }

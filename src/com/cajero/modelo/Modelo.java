@@ -68,23 +68,24 @@ public class Modelo {
     }
 
     static String id;
-    boolean iniciado = false;
+    public static boolean iniciado = false;
 
     public void iniciarSesion(String usu, String contraseña) {
 
         String sentencia = "select usuario,ctra from usuario;";
         db.resultSet(sentencia);
         try {
-            while (db.rs.next()) {
-                if (!usu.equals("")) {
+
+            if (!usu.equals("")) {
+                while (db.rs.next()) {
                     if (usu != db.rs.getString(1) && contraseña != db.rs.getString(2)) {
                         iniciado = true;
                     } else {
                         iniciado = false;
                     }
-                } else {
-                    JOptionPane.showMessageDialog(null, "Campos vacíos.");
                 }
+            } else {
+                JOptionPane.showMessageDialog(null, "Campos vacíos.");
             }
 
             if (iniciado == true) {
@@ -112,19 +113,16 @@ public class Modelo {
             System.out.println("Error al sacar el id. " + ex);
         }
     }
-    
-    public void insertarDinero(String dinero){
-       
-       String sentenciaDineroActual="select saldo from saldo where id='"+id+"';";
+
+    public void insertarDinero(String dinero) {
+
+        String sentenciaDineroActual = "select saldo from saldo where id='" + id + "';";
 //        int dinero1=Integer.parseInt(sentenciaDineroActual);
-        int dinero2=Integer.parseInt(dinero);
-       String sentenciaDineroIntroducido = "update saldo set saldo='"+(sentenciaDineroActual+dinero2)+"' where id='"+id+"';";
-       db.preparedStatement(sentenciaDineroActual);
-       db.preparedStatement(sentenciaDineroIntroducido);
-       
-       
-       
-      
-   }
-    
+        int dinero2 = Integer.parseInt(dinero);
+        String sentenciaDineroIntroducido = "update saldo set saldo='" + (sentenciaDineroActual + dinero2) + "' where id='" + id + "';";
+        db.preparedStatement(sentenciaDineroActual);
+        db.preparedStatement(sentenciaDineroIntroducido);
+
+    }
+
 }

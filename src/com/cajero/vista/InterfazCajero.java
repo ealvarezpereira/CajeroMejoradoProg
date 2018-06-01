@@ -12,8 +12,9 @@ import com.cajero.controlador.Controlador;
  * @author David
  */
 public class InterfazCajero extends javax.swing.JFrame {
-
+    
     Controlador objControlador = new Controlador();
+
     /**
      * Creates new form InterfazCajero
      */
@@ -21,6 +22,7 @@ public class InterfazCajero extends javax.swing.JFrame {
         initComponents();
         conexionBD();
         setLocationRelativeTo(null);
+        operaciones.setVisible(false);
     }
 
     /**
@@ -56,8 +58,7 @@ public class InterfazCajero extends javax.swing.JFrame {
         etImagenInsertar = new javax.swing.JLabel();
         bTarjeta = new javax.swing.JButton();
         etInsertarBilletes = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        bAceptar = new javax.swing.JButton();
+        operaciones = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -179,17 +180,10 @@ public class InterfazCajero extends javax.swing.JFrame {
 
         etInsertarBilletes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cajero/images/imagenBilletes.png"))); // NOI18N
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Introducir dinero", "Retirar dinero", "Mostrar saldo", "Transferencia bancaria", "Darse de baja", " " }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        operaciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Introducir dinero", "Retirar dinero", "Mostrar saldo", "Transferencia bancaria", "Darse de baja", " " }));
+        operaciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
-
-        bAceptar.setText("Aceptar");
-        bAceptar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bAceptarActionPerformed(evt);
+                operacionesActionPerformed(evt);
             }
         });
 
@@ -250,22 +244,15 @@ public class InterfazCajero extends javax.swing.JFrame {
                                     .addComponent(bBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(bCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(44, 44, 44)
-                        .addComponent(etInsertarBilletes))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(77, 77, 77)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(bAceptar)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(etInsertarBilletes)
+                            .addComponent(operaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(72, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bAceptar))
-                .addGap(13, 13, 13)
+                .addGap(77, 77, 77)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -274,8 +261,10 @@ public class InterfazCajero extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(bTres)
-                                    .addComponent(bCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(bDos))
+                                    .addComponent(bDos)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(operaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(bCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(29, 29, 29)
@@ -336,13 +325,18 @@ public class InterfazCajero extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void conexionBD(){
-    objControlador.conexionBD();
+    private void conexionBD() {
+        objControlador.conexionBD();
     }
     
-    public void aceptar(){
-        
-        
+    public static void mostrarJComboBox() {
+        jPanel1.add(operaciones);
+        operaciones.setVisible(true);
+        System.out.println(operaciones.isVisible());
+    }
+    
+    public void aceptar() {
+
         /*
         if (jopcion.getSelectedIndex() == 2) {
             caj.eliminarCuenta();
@@ -357,91 +351,85 @@ public class InterfazCajero extends javax.swing.JFrame {
             bot.setVisible(true);
             setVisible(false);
         }
-        */
-        if(jComboBox1.getSelectedIndex()==0){
+         */
+        if (operaciones.getSelectedIndex() == 0) {
             objControlador.insertarDinero(jTextPrueba.getText());
         }
         
-        
-        
     }
     
-    
+
     private void bTarjetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bTarjetaActionPerformed
-        InterfazInicioSesion obx=new InterfazInicioSesion();
+        InterfazInicioSesion obx = new InterfazInicioSesion();
         obx.setVisible(true);
     }//GEN-LAST:event_bTarjetaActionPerformed
-
-    String completo="";
+    
+    String completo = "";
     String bot;
     
     private void bUnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bUnoActionPerformed
-        bot="1";
-        completo=completo+bot;
+        bot = "1";
+        completo = completo + bot;
         this.jTextPrueba.setText(completo);
     }//GEN-LAST:event_bUnoActionPerformed
 
     private void bDosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDosActionPerformed
-        bot="2";
-        completo=completo+bot;
+        bot = "2";
+        completo = completo + bot;
         this.jTextPrueba.setText(completo);
     }//GEN-LAST:event_bDosActionPerformed
 
     private void bTresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bTresActionPerformed
-        bot="3";
-        completo=completo+bot;
+        bot = "3";
+        completo = completo + bot;
         this.jTextPrueba.setText(completo);
     }//GEN-LAST:event_bTresActionPerformed
 
     private void bCuatroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCuatroActionPerformed
-        bot="4";
-        completo=completo+bot;
+        bot = "4";
+        completo = completo + bot;
         this.jTextPrueba.setText(completo);
     }//GEN-LAST:event_bCuatroActionPerformed
 
     private void bCincoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCincoActionPerformed
-        bot="5";
-        completo=completo+bot;
+        bot = "5";
+        completo = completo + bot;
         this.jTextPrueba.setText(completo);
     }//GEN-LAST:event_bCincoActionPerformed
 
     private void bSeisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSeisActionPerformed
-        bot="6";
-        completo=completo+bot;
+        bot = "6";
+        completo = completo + bot;
         this.jTextPrueba.setText(completo);
     }//GEN-LAST:event_bSeisActionPerformed
 
     private void bSieteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSieteActionPerformed
-        bot="7";
-        completo=completo+bot;
+        bot = "7";
+        completo = completo + bot;
         this.jTextPrueba.setText(completo);
     }//GEN-LAST:event_bSieteActionPerformed
 
     private void bOchoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bOchoActionPerformed
-        bot="8";
-        completo=completo+bot;
+        bot = "8";
+        completo = completo + bot;
         this.jTextPrueba.setText(completo);
     }//GEN-LAST:event_bOchoActionPerformed
 
     private void bNueveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bNueveActionPerformed
-        bot="9";
-        completo=completo+bot;
+        bot = "9";
+        completo = completo + bot;
         this.jTextPrueba.setText(completo);
     }//GEN-LAST:event_bNueveActionPerformed
 
     private void bCeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCeroActionPerformed
-        bot="0";
-        completo=completo+bot;
+        bot = "0";
+        completo = completo + bot;
         this.jTextPrueba.setText(completo);
     }//GEN-LAST:event_bCeroActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void operacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_operacionesActionPerformed
         
-    }//GEN-LAST:event_jComboBox1ActionPerformed
-
-    private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
-        aceptar();
-    }//GEN-LAST:event_bAceptarActionPerformed
+    }//GEN-LAST:event_operacionesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -479,7 +467,6 @@ public class InterfazCajero extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bAceptar;
     private javax.swing.JButton bBorrar;
     private javax.swing.JButton bBorrar1;
     private javax.swing.JButton bCancelar;
@@ -501,9 +488,9 @@ public class InterfazCajero extends javax.swing.JFrame {
     private javax.swing.JButton btTransferencia;
     private javax.swing.JLabel etImagenInsertar;
     private javax.swing.JLabel etInsertarBilletes;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JPanel jPanel1;
+    private static javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField jTextPrueba;
+    private static javax.swing.JComboBox<String> operaciones;
     // End of variables declaration//GEN-END:variables
 }

@@ -164,6 +164,11 @@ public class InterfazRegistrar extends javax.swing.JFrame {
 
     private void bRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRegistrarseActionPerformed
         objControlador.registrarUsuario(jTextUsuario.getText(), jPassword.getText(), jTextNombre.getText(), jTextApellido.getText());
+        jTextUsuario.setText(null);
+        jPassword.setText(null);
+        jTextNombre.setText(null);
+        jTextApellido.setText(null);
+        this.setVisible(false);
     }//GEN-LAST:event_bRegistrarseActionPerformed
 
     /**
