@@ -5,6 +5,8 @@
  */
 package com.cajero.vista;
 
+import com.cajero.controlador.Controlador;
+
 /**
  *
  * @author David
@@ -12,6 +14,7 @@ package com.cajero.vista;
 public class InterfazInicioSesion extends javax.swing.JFrame {
 
     InterfazCajero obxC=new InterfazCajero();
+    Controlador obxControlador=new Controlador();
     
     /**
      * Creates new form InterfazInicioSesion
@@ -49,6 +52,11 @@ public class InterfazInicioSesion extends javax.swing.JFrame {
         etContraseña.setText("Contraseña:");
 
         bIniciarSesion.setText("Iniciar sesión");
+        bIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bIniciarSesionActionPerformed(evt);
+            }
+        });
 
         bSalir.setText("Salir");
         bSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -148,6 +156,10 @@ public class InterfazInicioSesion extends javax.swing.JFrame {
     private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
         dispose();
     }//GEN-LAST:event_bSalirActionPerformed
+
+    private void bIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bIniciarSesionActionPerformed
+        obxControlador.iniciarSesion(jTextUsuario.getText(), jPassword.getText());
+    }//GEN-LAST:event_bIniciarSesionActionPerformed
 
     /**
      * @param args the command line arguments
