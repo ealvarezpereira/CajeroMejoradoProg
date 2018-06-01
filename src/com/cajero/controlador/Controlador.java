@@ -27,4 +27,8 @@ public class Controlador {
         objModelo.iniciarSesion(usuario, contr);
     }
     
+    public void insertarDinero(int dinero){
+        objModelo.insertarDinero(dinero);
+    }
+    
 }
