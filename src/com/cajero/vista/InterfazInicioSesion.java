@@ -21,6 +21,7 @@ public class InterfazInicioSesion extends javax.swing.JFrame {
      */
     public InterfazInicioSesion() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
