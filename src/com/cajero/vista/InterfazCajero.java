@@ -12,7 +12,7 @@ import com.cajero.controlador.Controlador;
  * @author David
  */
 public class InterfazCajero extends javax.swing.JFrame {
-    
+
     Controlador objControlador = new Controlador();
 
     /**
@@ -332,7 +332,9 @@ public class InterfazCajero extends javax.swing.JFrame {
     }//GEN-LAST:event_bTarjetaActionPerformed
 
     private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
-        // TODO add your handling code here:
+        if (operaciones.getSelectedIndex() == 0) {
+            objControlador.insertarDinero(jTextPrueba.getText());
+        }
     }//GEN-LAST:event_bAceptarActionPerformed
 
     private void bBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBorrarActionPerformed
@@ -342,6 +344,9 @@ public class InterfazCajero extends javax.swing.JFrame {
     private void bCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCancelarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_bCancelarActionPerformed
+
+    String completo = "";
+    String bot;
 
     private void bCeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCeroActionPerformed
         bot = "0";
@@ -406,11 +411,7 @@ public class InterfazCajero extends javax.swing.JFrame {
     private void conexionBD() {
         objControlador.conexionBD();
     }
-    
-    public static void mostrarJComboBox() {
 
-    }
-    
     public void aceptar() {
 
         /*
@@ -428,16 +429,8 @@ public class InterfazCajero extends javax.swing.JFrame {
             setVisible(false);
         }
          */
-        if (operaciones.getSelectedIndex() == 0) {
-            objControlador.insertarDinero(jTextPrueba.getText());
-        }
-        
     }
-    
-    
-    String completo = "";
-    String bot;
-    
+
     /**
      * @param args the command line arguments
      */
