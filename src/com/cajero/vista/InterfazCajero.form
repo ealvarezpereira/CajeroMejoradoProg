@@ -362,13 +362,12 @@
         <Component class="javax.swing.JComboBox" name="operaciones">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="6">
+              <StringArray count="5">
                 <StringItem index="0" value="Introducir dinero"/>
                 <StringItem index="1" value="Retirar dinero"/>
                 <StringItem index="2" value="Mostrar saldo"/>
                 <StringItem index="3" value="Transferencia bancaria"/>
                 <StringItem index="4" value="Darse de baja"/>
-                <StringItem index="5" value=" "/>
               </StringArray>
             </Property>
           </Properties>
@@ -381,6 +380,9 @@
           </AuxValues>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextPrueba">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btTransferencia">
           <Properties>

@@ -164,12 +164,14 @@ public class InterfazCajero extends javax.swing.JFrame {
 
         panelopciones.setBackground(new java.awt.Color(255, 255, 255));
 
-        operaciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Introducir dinero", "Retirar dinero", "Mostrar saldo", "Transferencia bancaria", "Darse de baja", " " }));
+        operaciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Introducir dinero", "Retirar dinero", "Mostrar saldo", "Transferencia bancaria", "Darse de baja" }));
         operaciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 operacionesActionPerformed(evt);
             }
         });
+
+        jTextPrueba.setEditable(false);
 
         btTransferencia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cajero/images/botonTriangular.png"))); // NOI18N
 

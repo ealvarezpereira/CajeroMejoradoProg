@@ -5,7 +5,6 @@
  */
 package com.cajero.modelo;
 
-import com.cajero.controlador.Controlador;
 import com.cajero.libreria.ConexionesBD;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
@@ -84,18 +83,15 @@ public class Modelo {
                         iniciado = false;
                     }
                 }
-            } else {
-                JOptionPane.showMessageDialog(null, "Campos vacíos.");
             }
 
             if (iniciado == true) {
                 JOptionPane.showMessageDialog(null, "Sesión iniciada correctamente!", "Sesión inciada", JOptionPane.INFORMATION_MESSAGE, null);
+                db.rs.close();
+                sacarID(usu);
             } else {
                 JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos.", "ERROR", JOptionPane.INFORMATION_MESSAGE, null);
             }
-            db.rs.close();
-
-            sacarID(usu);
 
         } catch (SQLException ex) {
             System.out.println("ERROR SQL" + ex);
