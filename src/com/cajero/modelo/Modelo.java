@@ -77,7 +77,7 @@ public class Modelo {
 
             if (!usu.equals("")) {
                 while (db.rs.next()) {
-                    if (usu == db.rs.getString(1) && contraseña == db.rs.getString(2)) {
+                    if (usu.equals(db.rs.getString(1)) && contraseña.equals(db.rs.getString(2))) {
                         iniciado = true;
                     } else {
                         iniciado = false;
