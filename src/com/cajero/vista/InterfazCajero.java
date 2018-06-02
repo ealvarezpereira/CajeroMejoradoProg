@@ -22,7 +22,6 @@ public class InterfazCajero extends javax.swing.JFrame {
         initComponents();
         conexionBD();
         setLocationRelativeTo(null);
-        operaciones.setVisible(false);
     }
 
     /**
@@ -34,54 +33,64 @@ public class InterfazCajero extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jTextPrueba = new javax.swing.JTextField();
+        etImagenInsertar = new javax.swing.JLabel();
+        bTarjeta = new javax.swing.JButton();
+        bCancelar = new javax.swing.JButton();
+        bBorrar = new javax.swing.JButton();
+        etInsertarBilletes = new javax.swing.JLabel();
+        bAceptar = new javax.swing.JButton();
         bUno = new javax.swing.JButton();
         bDos = new javax.swing.JButton();
         bTres = new javax.swing.JButton();
         bCuatro = new javax.swing.JButton();
+        bSiete = new javax.swing.JButton();
         bCinco = new javax.swing.JButton();
         bSeis = new javax.swing.JButton();
-        bSiete = new javax.swing.JButton();
         bOcho = new javax.swing.JButton();
-        bNueve = new javax.swing.JButton();
         bCero = new javax.swing.JButton();
-        bCancelar = new javax.swing.JButton();
-        bBorrar = new javax.swing.JButton();
-        bBorrar1 = new javax.swing.JButton();
-        btIntroducir = new javax.swing.JButton();
-        btRetirar = new javax.swing.JButton();
-        btTransferencia = new javax.swing.JButton();
-        btSaldo = new javax.swing.JButton();
-        btDarseBaja = new javax.swing.JButton();
-        etImagenInsertar = new javax.swing.JLabel();
-        bTarjeta = new javax.swing.JButton();
-        etInsertarBilletes = new javax.swing.JLabel();
+        bNueve = new javax.swing.JButton();
+        panelopciones = new javax.swing.JPanel();
         operaciones = new javax.swing.JComboBox<>();
+        jTextPrueba = new javax.swing.JTextField();
+        btTransferencia = new javax.swing.JButton();
+        btDarseBaja = new javax.swing.JButton();
+        btSaldo = new javax.swing.JButton();
+        btRetirar = new javax.swing.JButton();
+        btIntroducir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(205, 205, 205));
+        etImagenInsertar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cajero/images/imagenInsertar.png"))); // NOI18N
 
-        jPanel2.setBackground(new java.awt.Color(233, 233, 233));
+        bTarjeta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cajero/images/imagenTarjeta.png"))); // NOI18N
+        bTarjeta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bTarjetaActionPerformed(evt);
+            }
+        });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(81, Short.MAX_VALUE)
-                .addComponent(jTextPrueba, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(73, 73, 73))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addComponent(jTextPrueba, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(221, Short.MAX_VALUE))
-        );
+        bCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cajero/images/botonCancelar.png"))); // NOI18N
+        bCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bCancelarActionPerformed(evt);
+            }
+        });
+
+        bBorrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cajero/images/botonBorrar.png"))); // NOI18N
+        bBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bBorrarActionPerformed(evt);
+            }
+        });
+
+        etInsertarBilletes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cajero/images/imagenBilletes.png"))); // NOI18N
+
+        bAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cajero/images/botonAceptar.png"))); // NOI18N
+        bAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bAceptarActionPerformed(evt);
+            }
+        });
 
         bUno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cajero/images/unoBoton.png"))); // NOI18N
         bUno.addActionListener(new java.awt.event.ActionListener() {
@@ -111,6 +120,13 @@ public class InterfazCajero extends javax.swing.JFrame {
             }
         });
 
+        bSiete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cajero/images/sieteBoton.png"))); // NOI18N
+        bSiete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bSieteActionPerformed(evt);
+            }
+        });
+
         bCinco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cajero/images/cincoBoton.png"))); // NOI18N
         bCinco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,24 +141,10 @@ public class InterfazCajero extends javax.swing.JFrame {
             }
         });
 
-        bSiete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cajero/images/sieteBoton.png"))); // NOI18N
-        bSiete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bSieteActionPerformed(evt);
-            }
-        });
-
         bOcho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cajero/images/ochoBoton.png"))); // NOI18N
         bOcho.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bOchoActionPerformed(evt);
-            }
-        });
-
-        bNueve.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cajero/images/nueveBoton.png"))); // NOI18N
-        bNueve.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bNueveActionPerformed(evt);
             }
         });
 
@@ -153,32 +155,14 @@ public class InterfazCajero extends javax.swing.JFrame {
             }
         });
 
-        bCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cajero/images/botonCancelar.png"))); // NOI18N
-
-        bBorrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cajero/images/botonBorrar.png"))); // NOI18N
-
-        bBorrar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cajero/images/botonAceptar.png"))); // NOI18N
-
-        btIntroducir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cajero/images/botonTriangular.png"))); // NOI18N
-
-        btRetirar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cajero/images/botonTriangular.png"))); // NOI18N
-
-        btTransferencia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cajero/images/botonTriangular.png"))); // NOI18N
-
-        btSaldo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cajero/images/botonTriangular.png"))); // NOI18N
-
-        btDarseBaja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cajero/images/botonTriangular.png"))); // NOI18N
-
-        etImagenInsertar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cajero/images/imagenInsertar.png"))); // NOI18N
-
-        bTarjeta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cajero/images/imagenTarjeta.png"))); // NOI18N
-        bTarjeta.addActionListener(new java.awt.event.ActionListener() {
+        bNueve.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cajero/images/nueveBoton.png"))); // NOI18N
+        bNueve.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bTarjetaActionPerformed(evt);
+                bNueveActionPerformed(evt);
             }
         });
 
-        etInsertarBilletes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cajero/images/imagenBilletes.png"))); // NOI18N
+        panelopciones.setBackground(new java.awt.Color(255, 255, 255));
 
         operaciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Introducir dinero", "Retirar dinero", "Mostrar saldo", "Transferencia bancaria", "Darse de baja", " " }));
         operaciones.addActionListener(new java.awt.event.ActionListener() {
@@ -187,152 +171,242 @@ public class InterfazCajero extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btIntroducir, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btRetirar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btTransferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btDarseBaja, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(87, 87, 87)
-                                .addComponent(etImagenInsertar))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(bTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(11, 11, 11))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(bCero, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(bSiete, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(bOcho, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(18, 18, 18)
-                                .addComponent(bNueve, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(bBorrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(bCuatro, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(bCinco, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(bSeis, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(bUno, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(bDos, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(bTres, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(bBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(bCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(44, 44, 44)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(etInsertarBilletes)
-                            .addComponent(operaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(72, Short.MAX_VALUE))
+        btTransferencia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cajero/images/botonTriangular.png"))); // NOI18N
+
+        btDarseBaja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cajero/images/botonTriangular.png"))); // NOI18N
+
+        btSaldo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cajero/images/botonTriangular.png"))); // NOI18N
+
+        btRetirar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cajero/images/botonTriangular.png"))); // NOI18N
+
+        btIntroducir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cajero/images/botonTriangular.png"))); // NOI18N
+
+        javax.swing.GroupLayout panelopcionesLayout = new javax.swing.GroupLayout(panelopciones);
+        panelopciones.setLayout(panelopcionesLayout);
+        panelopcionesLayout.setHorizontalGroup(
+            panelopcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelopcionesLayout.createSequentialGroup()
+                .addGroup(panelopcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelopcionesLayout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addGroup(panelopcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelopcionesLayout.createSequentialGroup()
+                                .addComponent(jTextPrueba, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btDarseBaja, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panelopcionesLayout.createSequentialGroup()
+                                .addComponent(operaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
+                                .addComponent(btTransferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelopcionesLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelopcionesLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(panelopcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btRetirar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btIntroducir, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(77, 77, 77)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(bTres)
-                                    .addComponent(bDos)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(operaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(bCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(29, 29, 29)
-                                .addComponent(bUno)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(bSeis)
-                                    .addComponent(bCinco)
-                                    .addComponent(bCuatro))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(bSiete)
-                                    .addComponent(bOcho)
-                                    .addComponent(bNueve)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(etInsertarBilletes)
-                                .addGap(23, 23, 23))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(bBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(bBorrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        panelopcionesLayout.setVerticalGroup(
+            panelopcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelopcionesLayout.createSequentialGroup()
+                .addGroup(panelopcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelopcionesLayout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(operaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
+                        .addComponent(jTextPrueba, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelopcionesLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btTransferencia)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(bCero)
-                        .addGap(37, 37, 37))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btIntroducir)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btRetirar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btTransferencia)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btSaldo)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btDarseBaja))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(14, 14, 14)
-                                .addComponent(etImagenInsertar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(bTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(btDarseBaja)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btSaldo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btRetirar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btIntroducir)
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(88, 88, 88)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(bCuatro, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bUno, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bSiete, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(bDos, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(bTres, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(bOcho, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(bCinco, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(bCero, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(bSeis, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(bNueve, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(76, 76, 76)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(bBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(etInsertarBilletes)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(78, 78, 78)
+                        .addComponent(panelopciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(etImagenInsertar)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(bTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addComponent(etImagenInsertar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(bTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addComponent(panelopciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(bUno)
+                        .addComponent(bDos)
+                        .addComponent(bTres))
+                    .addComponent(bBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(bSeis)
+                            .addComponent(bCinco)
+                            .addComponent(bCuatro)
+                            .addComponent(bCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(bNueve)
+                                .addComponent(bSiete, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addComponent(bAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(bOcho))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(bCero)
+                    .addComponent(etInsertarBilletes))
+                .addGap(7, 7, 7))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void operacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_operacionesActionPerformed
+
+    }//GEN-LAST:event_operacionesActionPerformed
+
+    private void bTarjetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bTarjetaActionPerformed
+        InterfazInicioSesion obx = new InterfazInicioSesion();
+        obx.setVisible(true);
+    }//GEN-LAST:event_bTarjetaActionPerformed
+
+    private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bAceptarActionPerformed
+
+    private void bBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBorrarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bBorrarActionPerformed
+
+    private void bCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCancelarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bCancelarActionPerformed
+
+    private void bCeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCeroActionPerformed
+        bot = "0";
+        completo = completo + bot;
+        this.jTextPrueba.setText(completo);
+    }//GEN-LAST:event_bCeroActionPerformed
+
+    private void bNueveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bNueveActionPerformed
+        bot = "9";
+        completo = completo + bot;
+        this.jTextPrueba.setText(completo);
+    }//GEN-LAST:event_bNueveActionPerformed
+
+    private void bOchoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bOchoActionPerformed
+        bot = "8";
+        completo = completo + bot;
+        this.jTextPrueba.setText(completo);
+    }//GEN-LAST:event_bOchoActionPerformed
+
+    private void bSieteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSieteActionPerformed
+        bot = "7";
+        completo = completo + bot;
+        this.jTextPrueba.setText(completo);
+    }//GEN-LAST:event_bSieteActionPerformed
+
+    private void bSeisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSeisActionPerformed
+        bot = "6";
+        completo = completo + bot;
+        this.jTextPrueba.setText(completo);
+    }//GEN-LAST:event_bSeisActionPerformed
+
+    private void bCincoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCincoActionPerformed
+        bot = "5";
+        completo = completo + bot;
+        this.jTextPrueba.setText(completo);
+    }//GEN-LAST:event_bCincoActionPerformed
+
+    private void bCuatroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCuatroActionPerformed
+        bot = "4";
+        completo = completo + bot;
+        this.jTextPrueba.setText(completo);
+    }//GEN-LAST:event_bCuatroActionPerformed
+
+    private void bTresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bTresActionPerformed
+        bot = "3";
+        completo = completo + bot;
+        this.jTextPrueba.setText(completo);
+    }//GEN-LAST:event_bTresActionPerformed
+
+    private void bDosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDosActionPerformed
+        bot = "2";
+        completo = completo + bot;
+        this.jTextPrueba.setText(completo);
+    }//GEN-LAST:event_bDosActionPerformed
+
+    private void bUnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bUnoActionPerformed
+        bot = "1";
+        completo = completo + bot;
+        this.jTextPrueba.setText(completo);
+    }//GEN-LAST:event_bUnoActionPerformed
 
     private void conexionBD() {
         objControlador.conexionBD();
     }
     
     public static void mostrarJComboBox() {
-        jPanel1.add(operaciones);
-        operaciones.setVisible(true);
-        System.out.println(operaciones.isVisible());
+
     }
     
     public void aceptar() {
@@ -358,79 +432,10 @@ public class InterfazCajero extends javax.swing.JFrame {
         
     }
     
-
-    private void bTarjetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bTarjetaActionPerformed
-        InterfazInicioSesion obx = new InterfazInicioSesion();
-        obx.setVisible(true);
-    }//GEN-LAST:event_bTarjetaActionPerformed
     
     String completo = "";
     String bot;
     
-    private void bUnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bUnoActionPerformed
-        bot = "1";
-        completo = completo + bot;
-        this.jTextPrueba.setText(completo);
-    }//GEN-LAST:event_bUnoActionPerformed
-
-    private void bDosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDosActionPerformed
-        bot = "2";
-        completo = completo + bot;
-        this.jTextPrueba.setText(completo);
-    }//GEN-LAST:event_bDosActionPerformed
-
-    private void bTresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bTresActionPerformed
-        bot = "3";
-        completo = completo + bot;
-        this.jTextPrueba.setText(completo);
-    }//GEN-LAST:event_bTresActionPerformed
-
-    private void bCuatroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCuatroActionPerformed
-        bot = "4";
-        completo = completo + bot;
-        this.jTextPrueba.setText(completo);
-    }//GEN-LAST:event_bCuatroActionPerformed
-
-    private void bCincoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCincoActionPerformed
-        bot = "5";
-        completo = completo + bot;
-        this.jTextPrueba.setText(completo);
-    }//GEN-LAST:event_bCincoActionPerformed
-
-    private void bSeisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSeisActionPerformed
-        bot = "6";
-        completo = completo + bot;
-        this.jTextPrueba.setText(completo);
-    }//GEN-LAST:event_bSeisActionPerformed
-
-    private void bSieteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSieteActionPerformed
-        bot = "7";
-        completo = completo + bot;
-        this.jTextPrueba.setText(completo);
-    }//GEN-LAST:event_bSieteActionPerformed
-
-    private void bOchoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bOchoActionPerformed
-        bot = "8";
-        completo = completo + bot;
-        this.jTextPrueba.setText(completo);
-    }//GEN-LAST:event_bOchoActionPerformed
-
-    private void bNueveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bNueveActionPerformed
-        bot = "9";
-        completo = completo + bot;
-        this.jTextPrueba.setText(completo);
-    }//GEN-LAST:event_bNueveActionPerformed
-
-    private void bCeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCeroActionPerformed
-        bot = "0";
-        completo = completo + bot;
-        this.jTextPrueba.setText(completo);
-    }//GEN-LAST:event_bCeroActionPerformed
-
-    private void operacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_operacionesActionPerformed
-        
-    }//GEN-LAST:event_operacionesActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -467,8 +472,8 @@ public class InterfazCajero extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bAceptar;
     private javax.swing.JButton bBorrar;
-    private javax.swing.JButton bBorrar1;
     private javax.swing.JButton bCancelar;
     private javax.swing.JButton bCero;
     private javax.swing.JButton bCinco;
@@ -488,9 +493,8 @@ public class InterfazCajero extends javax.swing.JFrame {
     private javax.swing.JButton btTransferencia;
     private javax.swing.JLabel etImagenInsertar;
     private javax.swing.JLabel etInsertarBilletes;
-    private static javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField jTextPrueba;
-    private static javax.swing.JComboBox<String> operaciones;
+    private javax.swing.JComboBox<String> operaciones;
+    private javax.swing.JPanel panelopciones;
     // End of variables declaration//GEN-END:variables
 }
