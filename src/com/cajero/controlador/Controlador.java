@@ -42,4 +42,9 @@ public class Controlador {
     public void retirarDinero(String dinero){
         objModelo.retirarDinero(dinero);
     }
+    
+    public void transferir(String dinero){
+        objModelo.transferencia(dinero);
+    }
+    
 }
