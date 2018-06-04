@@ -38,4 +38,8 @@ public class Controlador {
     public String mostrarDinero(){
         return objModelo.mostrarDinero();
     }
+    
+    public void retirarDinero(String dinero){
+        objModelo.retirarDinero(dinero);
+    }
 }
