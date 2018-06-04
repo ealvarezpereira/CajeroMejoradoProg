@@ -23,8 +23,8 @@ public class Controlador {
         objModelo.registrarUsuario(usuario, ctra, nombre, apellido);
     }
     
-    public void iniciarSesion(String usuario,String contr){
-        objModelo.iniciarSesion(usuario, contr);
+    public boolean iniciarSesion(String usuario,String contr){
+        return objModelo.iniciarSesion(usuario, contr);
     }
     
     public void insertarDinero(String dinero){
