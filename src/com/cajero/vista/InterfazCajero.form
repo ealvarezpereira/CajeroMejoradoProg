@@ -65,13 +65,8 @@
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jTxtDinero" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                                          <Component id="lblSal" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="67" pref="67" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="jTxtDinero" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                                  <Component id="lblSal" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jTextMostrarSaldo" min="-2" pref="200" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -82,7 +77,7 @@
                               <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="jLabel1" min="-2" pref="310" max="-2" attributes="0"/>
+                              <Component id="operacion" min="-2" pref="310" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -164,16 +159,16 @@
                       </Group>
                       <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="btSaldo" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
-                          </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel1" min="-2" pref="14" max="-2" attributes="0"/>
-                                  <Component id="lblSaldo" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="lblSaldo" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="btSaldo" min="-2" max="-2" attributes="0"/>
+                                  <Component id="operacion" min="-2" pref="44" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -504,7 +499,10 @@
         <Property name="text" type="java.lang.String" value="Destino"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="operacion">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Bienvenido a Kay&amp;Ve bank!"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

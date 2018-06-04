@@ -66,7 +66,7 @@ public class InterfazCajero extends javax.swing.JFrame {
         lblBaja = new javax.swing.JLabel();
         lblSal = new javax.swing.JLabel();
         lblDestino = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        operacion = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -227,6 +227,8 @@ public class InterfazCajero extends javax.swing.JFrame {
 
         lblDestino.setText("Destino");
 
+        operacion.setText("Bienvenido a Kay&Ve bank!");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -265,11 +267,8 @@ public class InterfazCajero extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(11, 11, 11)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jTxtDinero, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(lblSal))
-                                        .addGap(67, 67, 67))
+                                    .addComponent(jTxtDinero, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblSal)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jTextMostrarSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -277,7 +276,7 @@ public class InterfazCajero extends javax.swing.JFrame {
                                     .addComponent(lblIntr))
                                 .addGap(50, 50, 50))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(operacion, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -336,14 +335,14 @@ public class InterfazCajero extends javax.swing.JFrame {
                                 .addComponent(btRetirar)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btSaldo)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblSaldo))
-                                .addGap(30, 30, 30)))
+                                .addComponent(lblSaldo)
+                                .addGap(30, 30, 30))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(btSaldo)
+                                    .addComponent(operacion, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(lblBaja)
@@ -404,10 +403,11 @@ public class InterfazCajero extends javax.swing.JFrame {
         if (InterfazInicioSesion.mostrarVar == false) {
             this.lbIntroducir.setVisible(false);
             this.lblBaja.setVisible(false);
-            this.lblIntr.setVisible(false);
             this.lblRetirar.setVisible(false);
             this.lblSaldo.setVisible(false);
             this.lblTrans.setVisible(false);
+
+            this.lblIntr.setVisible(false);
             this.jTxtDinero.setVisible(false);
             this.lblSal.setVisible(false);
             this.jTextMostrarSaldo.setVisible(false);
@@ -545,44 +545,84 @@ public class InterfazCajero extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_bUnoActionPerformed
 
-    int op;
+    int op = 0;
 
     private void btTransferenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTransferenciaActionPerformed
-        op = 5;
-        this.lblDestino.setVisible(true);
-        this.lblSal.setVisible(false);
-        this.lblIntr.setVisible(true);
-        this.jTxtDinero.setVisible(true);
-        this.jTextMostrarSaldo.setVisible(true);
-        this.jTextMostrarSaldo.setEditable(true);
+        if (op == 0) {
+            operacion.setText("Operación: Transferencia bancaria.");
+            op = 5;
+            this.lblDestino.setVisible(true);
+            this.lblSal.setVisible(false);
+            this.lblIntr.setVisible(true);
+            this.jTxtDinero.setVisible(true);
+            this.jTextMostrarSaldo.setVisible(true);
+            this.jTextMostrarSaldo.setEditable(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "Ya hay otra operación en curso.");
+        }
+
     }//GEN-LAST:event_btTransferenciaActionPerformed
 
     private void btSaldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSaldoActionPerformed
-        op = 3;
-        this.lblDestino.setVisible(false);
-        this.lblIntr.setVisible(false);
-        this.jTxtDinero.setVisible(false);
-        this.lblSal.setVisible(true);
-        this.jTextMostrarSaldo.setVisible(true);
-        this.jTextMostrarSaldo.setEditable(false);
+        if (op == 0) {
+            operacion.setText("Operación: Mostrar saldo.");
+            op = 3;
+            this.lblDestino.setVisible(false);
+            this.lblIntr.setVisible(false);
+            this.jTxtDinero.setVisible(false);
+            this.lblSal.setVisible(true);
+            this.jTextMostrarSaldo.setVisible(true);
+            this.jTextMostrarSaldo.setEditable(false);
+        } else {
+            JOptionPane.showMessageDialog(null, "Ya hay otra operación en curso.");
+        }
+
+
     }//GEN-LAST:event_btSaldoActionPerformed
 
     private void btRetirarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRetirarActionPerformed
-        op = 2;
+
+        if (op == 0) {
+                        operacion.setText("Operación: Retirar dinero.");
+
+            op = 2;
+            this.lblDestino.setVisible(false);
+            this.lblSal.setVisible(false);
+            this.jTextMostrarSaldo.setVisible(false);
+            this.lblIntr.setVisible(true);
+            this.jTxtDinero.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "Ya hay otra operación en curso.");
+        }
+
+
     }//GEN-LAST:event_btRetirarActionPerformed
 
     private void btIntroducirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btIntroducirActionPerformed
-        op = 1;
-        this.lblDestino.setVisible(false);
-        this.lblSal.setVisible(false);
-        this.jTextMostrarSaldo.setVisible(false);
-        this.lblIntr.setVisible(true);
-        this.jTxtDinero.setVisible(true);
+
+        if (op == 0) {
+                        operacion.setText("Operación: Ingresar dinero.");
+
+            op = 1;
+            this.lblDestino.setVisible(false);
+            this.lblSal.setVisible(false);
+            this.jTextMostrarSaldo.setVisible(false);
+            this.lblIntr.setVisible(true);
+            this.jTxtDinero.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "Ya hay otra operación en curso.");
+        }
+
 
     }//GEN-LAST:event_btIntroducirActionPerformed
 
     private void btDarseBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDarseBajaActionPerformed
-        op = 4;
+        if (op == 0) {
+            operacion.setText("Operación: Darse de baja.");
+            op = 4;
+        } else {
+            JOptionPane.showMessageDialog(null, "Ya hay otra operación en curso.");
+        }
     }//GEN-LAST:event_btDarseBajaActionPerformed
 
     private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
@@ -613,6 +653,17 @@ public class InterfazCajero extends javax.swing.JFrame {
 
     private void bCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCancelarActionPerformed
         if (InterfazInicioSesion.mostrarVar == true) {
+            operacion.setText("Bienvenido a Kay&Ve bank!");
+            this.lblIntr.setVisible(false);
+            this.jTxtDinero.setVisible(false);
+            this.lblSal.setVisible(false);
+            this.jTextMostrarSaldo.setVisible(false);
+            this.lblDestino.setVisible(false);
+            this.jTextMostrarSaldo.setText("");
+            this.jTxtDinero.setText("");
+            bot = "";
+            completo = "";
+            op = 0;
         } else {
             JOptionPane.showMessageDialog(null, "Inicie sesión primero.");
         }
@@ -690,7 +741,6 @@ public class InterfazCajero extends javax.swing.JFrame {
     private javax.swing.JButton btTransferencia;
     private javax.swing.JLabel etImagenInsertar;
     private javax.swing.JLabel etInsertarBilletes;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField jTextMostrarSaldo;
     private javax.swing.JTextField jTxtDinero;
     private javax.swing.JLabel lbIntroducir;
@@ -701,5 +751,6 @@ public class InterfazCajero extends javax.swing.JFrame {
     private javax.swing.JLabel lblSal;
     private javax.swing.JLabel lblSaldo;
     private javax.swing.JLabel lblTrans;
+    private javax.swing.JLabel operacion;
     // End of variables declaration//GEN-END:variables
 }
