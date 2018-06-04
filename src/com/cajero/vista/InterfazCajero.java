@@ -720,13 +720,13 @@ public class InterfazCajero extends javax.swing.JFrame {
                     break;
                 case 3:
                     jTextMultiusos.setText(objControlador.mostrarDinero());
-                    op = 0;
                     break;
                 case 4:
                     break;
 
                 case 5:
-                    objControlador.transferir(jTxtDinero.getText(),jTextMultiusos.getText());
+                    objControlador.transferir(jTxtDinero.getText(), jTextMultiusos.getText());
+                    reset();
                     break;
                 default:
                     JOptionPane.showMessageDialog(null, "Error.");
@@ -760,6 +760,7 @@ public class InterfazCajero extends javax.swing.JFrame {
 
     private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
         InterfazInicioSesion.mostrarVar = false;
+        operacion.setText("Bienvenido a Kay&Ve bank!");
         init();
         this.logout.setVisible(false);
         repaint();
