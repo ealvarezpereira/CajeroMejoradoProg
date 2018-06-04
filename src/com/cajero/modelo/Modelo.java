@@ -153,5 +153,26 @@ public class Modelo {
         return dinero;
         
     }
+    
+    public void retirarDinero(String dinero){
+        
+        try {
+            String sentenciaDineroActual = "select saldo from saldo where id='" + id + "';";
+            ConexionesBD.resultSet(sentenciaDineroActual);
+            int saldoCuenta = Integer.parseInt(ConexionesBD.rs.getString(1));
+            if(saldoCuenta!=0){
+                ConexionesBD.rs.close();
+                int dineroARetirar = Integer.parseInt(dinero);
+                String sentenciaDineroIntroducido = "update saldo set saldo='" + (saldoCuenta - dineroARetirar) + "' where id='" + id + "';";
+                ConexionesBD.preparedStatement(sentenciaDineroIntroducido);
+            }else{
+                JOptionPane.showMessageDialog(null, "No hay suficiente saldo en la cuenta.", "ERROR", JOptionPane.INFORMATION_MESSAGE, null);
+            }
+
+        } catch (SQLException ex) {
+            System.out.println("Error al insertar dinero. " + ex);
+        }
+        
+    }
 
 }
