@@ -34,4 +34,8 @@ public class Controlador {
     public boolean mostrarComboBox(){
        return Modelo.iniciado;
     }
+    
+    public String mostrarDinero(){
+        return objModelo.mostrarDinero();
+    }
 }
