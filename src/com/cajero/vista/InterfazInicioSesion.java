@@ -13,9 +13,9 @@ import com.cajero.controlador.Controlador;
  */
 public class InterfazInicioSesion extends javax.swing.JFrame {
 
-    InterfazCajero obxC=new InterfazCajero();
-    Controlador obxControlador=new Controlador();
-    
+    InterfazCajero obxC = new InterfazCajero();
+    Controlador obxControlador = new Controlador();
+
     /**
      * Creates new form InterfazInicioSesion
      */
@@ -149,7 +149,7 @@ public class InterfazInicioSesion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRegistrarseActionPerformed
-        InterfazRegistrar obx=new InterfazRegistrar();
+        InterfazRegistrar obx = new InterfazRegistrar();
         obx.setVisible(true);
         dispose();
     }//GEN-LAST:event_bRegistrarseActionPerformed
@@ -160,11 +160,13 @@ public class InterfazInicioSesion extends javax.swing.JFrame {
 
     /*
         Clase InterfazInicioSesion, recoge lo que puso el usuario en los jTextField. Y los recoge el metodo "iniciarSesion" de la Clase Controlador.
-    */
+     */
     private void bIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bIniciarSesionActionPerformed
-        obxControlador.iniciarSesion(jTextUsuario.getText(), jPassword.getText());
-        
+        if (obxControlador.iniciarSesion(jTextUsuario.getText(), jPassword.getText()) == true) {
+            InterfazCajero.activarJComboBox();
+        }
         this.setVisible(false);
+        obxC.setVisible(true);
     }//GEN-LAST:event_bIniciarSesionActionPerformed
 
     /**

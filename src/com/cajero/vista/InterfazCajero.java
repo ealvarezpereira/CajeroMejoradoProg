@@ -6,6 +6,7 @@
 package com.cajero.vista;
 
 import com.cajero.controlador.Controlador;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -22,6 +23,8 @@ public class InterfazCajero extends javax.swing.JFrame {
         initComponents();
         conexionBD();
         setLocationRelativeTo(null);
+        operaciones.setEnabled(false);
+        jTxtDinero.setEnabled(false);
     }
 
     /**
@@ -51,7 +54,7 @@ public class InterfazCajero extends javax.swing.JFrame {
         bNueve = new javax.swing.JButton();
         panelopciones = new javax.swing.JPanel();
         operaciones = new javax.swing.JComboBox<>();
-        jTextPrueba = new javax.swing.JTextField();
+        jTxtDinero = new javax.swing.JTextField();
         btTransferencia = new javax.swing.JButton();
         btDarseBaja = new javax.swing.JButton();
         btSaldo = new javax.swing.JButton();
@@ -165,13 +168,8 @@ public class InterfazCajero extends javax.swing.JFrame {
         panelopciones.setBackground(new java.awt.Color(255, 255, 255));
 
         operaciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Introducir dinero", "Retirar dinero", "Mostrar saldo", "Transferencia bancaria", "Darse de baja" }));
-        operaciones.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                operacionesActionPerformed(evt);
-            }
-        });
 
-        jTextPrueba.setEditable(false);
+        jTxtDinero.setEditable(false);
 
         btTransferencia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cajero/images/botonTriangular.png"))); // NOI18N
 
@@ -193,7 +191,7 @@ public class InterfazCajero extends javax.swing.JFrame {
                         .addGap(23, 23, 23)
                         .addGroup(panelopcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelopcionesLayout.createSequentialGroup()
-                                .addComponent(jTextPrueba, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTxtDinero, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btDarseBaja, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(panelopcionesLayout.createSequentialGroup()
@@ -218,7 +216,7 @@ public class InterfazCajero extends javax.swing.JFrame {
                         .addGap(14, 14, 14)
                         .addComponent(operaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(28, 28, 28)
-                        .addComponent(jTextPrueba, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTxtDinero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelopcionesLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(btTransferencia)
@@ -322,23 +320,25 @@ public class InterfazCajero extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void operacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_operacionesActionPerformed
-
-    }//GEN-LAST:event_operacionesActionPerformed
-
+    public static void activarJComboBox(){
+        operaciones.setEnabled(true);
+    }
+    
+    
     private void bTarjetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bTarjetaActionPerformed
         InterfazInicioSesion obx = new InterfazInicioSesion();
         obx.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_bTarjetaActionPerformed
 
     private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
         if (operaciones.getSelectedIndex() == 0) {
-            objControlador.insertarDinero(jTextPrueba.getText());
+            objControlador.insertarDinero(jTxtDinero.getText());
         }
     }//GEN-LAST:event_bAceptarActionPerformed
 
     private void bBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBorrarActionPerformed
-        // TODO add your handling code here:
+       jTxtDinero.setText("");
     }//GEN-LAST:event_bBorrarActionPerformed
 
     private void bCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCancelarActionPerformed
@@ -351,61 +351,61 @@ public class InterfazCajero extends javax.swing.JFrame {
     private void bCeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCeroActionPerformed
         bot = "0";
         completo = completo + bot;
-        this.jTextPrueba.setText(completo);
+        this.jTxtDinero.setText(completo);
     }//GEN-LAST:event_bCeroActionPerformed
 
     private void bNueveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bNueveActionPerformed
         bot = "9";
         completo = completo + bot;
-        this.jTextPrueba.setText(completo);
+        this.jTxtDinero.setText(completo);
     }//GEN-LAST:event_bNueveActionPerformed
 
     private void bOchoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bOchoActionPerformed
         bot = "8";
         completo = completo + bot;
-        this.jTextPrueba.setText(completo);
+        this.jTxtDinero.setText(completo);
     }//GEN-LAST:event_bOchoActionPerformed
 
     private void bSieteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSieteActionPerformed
         bot = "7";
         completo = completo + bot;
-        this.jTextPrueba.setText(completo);
+        this.jTxtDinero.setText(completo);
     }//GEN-LAST:event_bSieteActionPerformed
 
     private void bSeisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSeisActionPerformed
         bot = "6";
         completo = completo + bot;
-        this.jTextPrueba.setText(completo);
+        this.jTxtDinero.setText(completo);
     }//GEN-LAST:event_bSeisActionPerformed
 
     private void bCincoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCincoActionPerformed
         bot = "5";
         completo = completo + bot;
-        this.jTextPrueba.setText(completo);
+        this.jTxtDinero.setText(completo);
     }//GEN-LAST:event_bCincoActionPerformed
 
     private void bCuatroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCuatroActionPerformed
         bot = "4";
         completo = completo + bot;
-        this.jTextPrueba.setText(completo);
+        this.jTxtDinero.setText(completo);
     }//GEN-LAST:event_bCuatroActionPerformed
 
     private void bTresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bTresActionPerformed
         bot = "3";
         completo = completo + bot;
-        this.jTextPrueba.setText(completo);
+        this.jTxtDinero.setText(completo);
     }//GEN-LAST:event_bTresActionPerformed
 
     private void bDosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDosActionPerformed
         bot = "2";
         completo = completo + bot;
-        this.jTextPrueba.setText(completo);
+        this.jTxtDinero.setText(completo);
     }//GEN-LAST:event_bDosActionPerformed
 
     private void bUnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bUnoActionPerformed
         bot = "1";
         completo = completo + bot;
-        this.jTextPrueba.setText(completo);
+        this.jTxtDinero.setText(completo);
     }//GEN-LAST:event_bUnoActionPerformed
 
     private void conexionBD() {
@@ -488,8 +488,8 @@ public class InterfazCajero extends javax.swing.JFrame {
     private javax.swing.JButton btTransferencia;
     private javax.swing.JLabel etImagenInsertar;
     private javax.swing.JLabel etInsertarBilletes;
-    private javax.swing.JTextField jTextPrueba;
-    private javax.swing.JComboBox<String> operaciones;
+    private javax.swing.JTextField jTxtDinero;
+    private static javax.swing.JComboBox<String> operaciones;
     private javax.swing.JPanel panelopciones;
     // End of variables declaration//GEN-END:variables
 }

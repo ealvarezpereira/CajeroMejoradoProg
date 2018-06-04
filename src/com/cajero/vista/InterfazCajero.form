@@ -303,7 +303,7 @@
                           <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="jTextPrueba" min="-2" pref="200" max="-2" attributes="0"/>
+                                  <Component id="jTxtDinero" min="-2" pref="200" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Component id="btDarseBaja" min="-2" pref="46" max="-2" attributes="0"/>
                               </Group>
@@ -338,7 +338,7 @@
                           <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                           <Component id="operaciones" min="-2" pref="34" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                          <Component id="jTextPrueba" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTxtDinero" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
@@ -371,15 +371,12 @@
               </StringArray>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="operacionesActionPerformed"/>
-          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextPrueba">
+        <Component class="javax.swing.JTextField" name="jTxtDinero">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
           </Properties>
