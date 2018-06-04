@@ -135,82 +135,86 @@ public class Modelo {
             System.out.println("Error al insertar dinero. " + ex);
         }
     }
-    
-    public String mostrarDinero(){
+
+    public String mostrarDinero() {
         String dinero = null;
         try {
-            
+
             String sentenciaDineroActual = "select saldo from saldo where id='" + id + "';";
             ConexionesBD.resultSet(sentenciaDineroActual);
             System.out.println(ConexionesBD.rs.getString(1));
-            dinero=ConexionesBD.rs.getString(1);
+            dinero = ConexionesBD.rs.getString(1);
             ConexionesBD.rs.close();
-            
 
         } catch (SQLException ex) {
             System.out.println("Error al sacar dinero. " + ex);
         }
         return dinero;
-        
+
     }
-    
-    public void retirarDinero(String dinero){
-        
+
+    public void retirarDinero(String dinero) {
+
         try {
-            String sentenciaDineroActual = "select saldo from saldo where id='" + id + "';";
-            ConexionesBD.resultSet(sentenciaDineroActual);
-            int saldoCuenta = Integer.parseInt(ConexionesBD.rs.getString(1));
-            if(saldoCuenta!=0){
-                ConexionesBD.rs.close();
-                int dineroARetirar = Integer.parseInt(dinero);
-                String sentenciaDineroIntroducido = "update saldo set saldo='" + (saldoCuenta - dineroARetirar) + "' where id='" + id + "';";
-                ConexionesBD.preparedStatement(sentenciaDineroIntroducido);
-            }else{
-                JOptionPane.showMessageDialog(null, "No hay suficiente saldo en la cuenta.", "ERROR", JOptionPane.INFORMATION_MESSAGE, null);
+            if (!dinero.equals("0")) {
+                String sentenciaDineroActual = "select saldo from saldo where id='" + id + "';";
+                ConexionesBD.resultSet(sentenciaDineroActual);
+                int saldoCuenta = Integer.parseInt(ConexionesBD.rs.getString(1));
+                if (saldoCuenta > Integer.parseInt(dinero)) {
+                    ConexionesBD.rs.close();
+                    int dineroARetirar = Integer.parseInt(dinero);
+                    String sentenciaDineroIntroducido = "update saldo set saldo='" + (saldoCuenta - dineroARetirar) + "' where id='" + id + "';";
+                    ConexionesBD.preparedStatement(sentenciaDineroIntroducido);
+                } else {
+                    JOptionPane.showMessageDialog(null, "No hay suficiente saldo en la cuenta.", "ERROR", JOptionPane.INFORMATION_MESSAGE, null);
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Si juan quiere una manzana y cuando va a un supermercado elige 0 manzanas,\n"
+                        + "¿Crees que saciará su hambre de manzanas?");
             }
 
         } catch (SQLException ex) {
             System.out.println("Error al insertar dinero. " + ex);
         }
-        
+
     }
-    
-    public void transferencia(String dinero){
-        
+
+    public void transferencia(String dinero) {
+
         try {
             String sentenciaDineroActual = "select saldo from saldo where id='" + id + "';";
             ConexionesBD.resultSet(sentenciaDineroActual);
             int saldoCuenta = Integer.parseInt(ConexionesBD.rs.getString(1));
             int dineroATransferir = 0;
-            if(saldoCuenta!=0){
+            if (saldoCuenta != 0) {
                 ConexionesBD.rs.close();
                 dineroATransferir = Integer.parseInt(dinero);
                 String sentenciaDineroIntroducido = "update saldo set saldo='" + (saldoCuenta - dineroATransferir) + "' where id='" + id + "';";
                 ConexionesBD.preparedStatement(sentenciaDineroIntroducido);
-            }else{
+            } else {
                 JOptionPane.showMessageDialog(null, "No hay suficiente saldo en la cuenta.", "ERROR", JOptionPane.INFORMATION_MESSAGE, null);
             }
-            
-            String usuarioTrans=JOptionPane.showInputDialog("Nombre del usuario a transferir: ");
+
+            String usuarioTrans = JOptionPane.showInputDialog("Nombre del usuario a transferir: ");
             String usuarioPrueba = "select usuario from usuario where usuario='" + usuarioTrans + "';";
             ConexionesBD.resultSet(usuarioPrueba);
-            
-            if(usuarioTrans==usuarioPrueba){
+
+            if (usuarioTrans == usuarioPrueba) {
                 String sentenciaUsuario = "select id from saldo where usuario='" + usuarioTrans + "';";
                 ConexionesBD.resultSet(sentenciaUsuario);
                 String sentenciaDineroUsuarioTrans = "select saldo from saldo where id='" + sentenciaUsuario + "';";
                 ConexionesBD.resultSet(sentenciaDineroUsuarioTrans);
                 int dineroASumar = Integer.parseInt(sentenciaDineroUsuarioTrans);
                 String sentenciaDineroAñadido = "update saldo set saldo='" + (dineroASumar + dineroATransferir) + "' where id='" + id + "';";
-                
-            }else{
+
+            } else {
                 JOptionPane.showMessageDialog(null, "El usuario no existe.", "ERROR", JOptionPane.INFORMATION_MESSAGE, null);
             }
 
         } catch (SQLException ex) {
             System.out.println("Error al insertar dinero. " + ex);
         }
-        
+
     }
 
 }

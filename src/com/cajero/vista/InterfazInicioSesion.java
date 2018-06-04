@@ -156,6 +156,7 @@ public class InterfazInicioSesion extends javax.swing.JFrame {
 
     private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
         dispose();
+        obxC.setVisible(true);
     }//GEN-LAST:event_bSalirActionPerformed
 
     /*

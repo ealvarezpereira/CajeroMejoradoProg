@@ -9,8 +9,6 @@ import com.cajero.controlador.Controlador;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Shape;
-import java.awt.geom.Rectangle2D;
 import javax.swing.JOptionPane;
 
 /**
@@ -406,8 +404,7 @@ public class InterfazCajero extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-
-Graphics g;
+    Graphics g;
 
     @Override
     public void paint(Graphics g) {
@@ -464,9 +461,11 @@ Graphics g;
 
     private void bCeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCeroActionPerformed
         if (InterfazInicioSesion.mostrarVar == true) {
-            bot = "0";
-            completo = completo + bot;
-            this.jTxtDinero.setText(completo);
+            if (op != 0) {
+                bot = "0";
+                completo = completo + bot;
+                this.jTxtDinero.setText(completo);
+            }
         } else {
             JOptionPane.showMessageDialog(null, "Inicie sesión primero.");
         }
@@ -475,9 +474,11 @@ Graphics g;
 
     private void bNueveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bNueveActionPerformed
         if (InterfazInicioSesion.mostrarVar == true) {
-            bot = "9";
-            completo = completo + bot;
-            this.jTxtDinero.setText(completo);
+            if (op != 0) {
+                bot = "9";
+                completo = completo + bot;
+                this.jTxtDinero.setText(completo);
+            }
         } else {
             JOptionPane.showMessageDialog(null, "Inicie sesión primero.");
         }
@@ -485,9 +486,11 @@ Graphics g;
 
     private void bOchoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bOchoActionPerformed
         if (InterfazInicioSesion.mostrarVar == true) {
-            bot = "8";
-            completo = completo + bot;
-            this.jTxtDinero.setText(completo);
+            if (op != 0) {
+                bot = "8";
+                completo = completo + bot;
+                this.jTxtDinero.setText(completo);
+            }
         } else {
             JOptionPane.showMessageDialog(null, "Inicie sesión primero.");
         }
@@ -495,9 +498,11 @@ Graphics g;
 
     private void bSieteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSieteActionPerformed
         if (InterfazInicioSesion.mostrarVar == true) {
-            bot = "7";
-            completo = completo + bot;
-            this.jTxtDinero.setText(completo);
+            if (op != 0) {
+                bot = "7";
+                completo = completo + bot;
+                this.jTxtDinero.setText(completo);
+            }
         } else {
             JOptionPane.showMessageDialog(null, "Inicie sesión primero.");
         }
@@ -505,9 +510,11 @@ Graphics g;
 
     private void bSeisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSeisActionPerformed
         if (InterfazInicioSesion.mostrarVar == true) {
-            bot = "6";
-            completo = completo + bot;
-            this.jTxtDinero.setText(completo);
+            if (op != 0) {
+                bot = "6";
+                completo = completo + bot;
+                this.jTxtDinero.setText(completo);
+            }
         } else {
             JOptionPane.showMessageDialog(null, "Inicie sesión primero.");
         }
@@ -515,9 +522,11 @@ Graphics g;
 
     private void bCincoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCincoActionPerformed
         if (InterfazInicioSesion.mostrarVar == true) {
-            bot = "5";
-            completo = completo + bot;
-            this.jTxtDinero.setText(completo);
+            if (op != 0) {
+                bot = "5";
+                completo = completo + bot;
+                this.jTxtDinero.setText(completo);
+            }
         } else {
             JOptionPane.showMessageDialog(null, "Inicie sesión primero.");
         }
@@ -525,9 +534,11 @@ Graphics g;
 
     private void bCuatroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCuatroActionPerformed
         if (InterfazInicioSesion.mostrarVar == true) {
-            bot = "4";
-            completo = completo + bot;
-            this.jTxtDinero.setText(completo);
+            if (op != 0) {
+                bot = "4";
+                completo = completo + bot;
+                this.jTxtDinero.setText(completo);
+            }
         } else {
             JOptionPane.showMessageDialog(null, "Inicie sesión primero.");
         }
@@ -535,9 +546,11 @@ Graphics g;
 
     private void bTresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bTresActionPerformed
         if (InterfazInicioSesion.mostrarVar == true) {
-            bot = "3";
-            completo = completo + bot;
-            this.jTxtDinero.setText(completo);
+            if (op != 0) {
+                bot = "3";
+                completo = completo + bot;
+                this.jTxtDinero.setText(completo);
+            }
         } else {
             JOptionPane.showMessageDialog(null, "Inicie sesión primero.");
         }
@@ -545,9 +558,11 @@ Graphics g;
 
     private void bDosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDosActionPerformed
         if (InterfazInicioSesion.mostrarVar == true) {
-            bot = "2";
-            completo = completo + bot;
-            this.jTxtDinero.setText(completo);
+            if (op != 0) {
+                bot = "2";
+                completo = completo + bot;
+                this.jTxtDinero.setText(completo);
+            }
         } else {
             JOptionPane.showMessageDialog(null, "Inicie sesión primero.");
         }
@@ -555,9 +570,11 @@ Graphics g;
 
     private void bUnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bUnoActionPerformed
         if (InterfazInicioSesion.mostrarVar == true) {
-            bot = "1";
-            completo = completo + bot;
-            this.jTxtDinero.setText(completo);
+            if (op != 0) {
+                bot = "1";
+                completo = completo + bot;
+                this.jTxtDinero.setText(completo);
+            }
         } else {
             JOptionPane.showMessageDialog(null, "Inicie sesión primero.");
         }
@@ -583,7 +600,7 @@ Graphics g;
     }//GEN-LAST:event_btTransferenciaActionPerformed
 
     private void btSaldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSaldoActionPerformed
-       repaint();
+        repaint();
         if (op == 0) {
             operacion.setText("Operación: Mostrar saldo.");
             op = 3;
@@ -669,6 +686,12 @@ Graphics g;
         } else {
             JOptionPane.showMessageDialog(null, "Inicie sesión primero.");
         }
+
+        this.jTextMostrarSaldo.setText("");
+        this.jTxtDinero.setText("");
+        bot = "";
+        completo = "";
+        op = 0;
     }//GEN-LAST:event_bAceptarActionPerformed
 
     private void bCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCancelarActionPerformed
