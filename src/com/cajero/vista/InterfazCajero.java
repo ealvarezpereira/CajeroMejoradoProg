@@ -434,10 +434,6 @@ public class InterfazCajero extends javax.swing.JFrame {
         }
     }
 
-    public void activarJComboBox() {
-        btIntroducir.setEnabled(true);
-    }
-
 
     private void bTarjetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bTarjetaActionPerformed
         InterfazInicioSesion obx = new InterfazInicioSesion();
@@ -596,9 +592,16 @@ public class InterfazCajero extends javax.swing.JFrame {
                     objControlador.insertarDinero(jTxtDinero.getText());
                     break;
                 case 2:
+                    objControlador.retirarDinero(jTxtDinero.getText());
                     break;
                 case 3:
                     jTextMostrarSaldo.setText(objControlador.mostrarDinero());
+                    break;
+                case 4:
+                    break;
+
+                case 5:
+                    objControlador.transferir(jTxtDinero.getText());
                     break;
                 default:
                     JOptionPane.showMessageDialog(null, "Error.");
