@@ -6,16 +6,19 @@
 package com.cajero.vista;
 
 import com.cajero.controlador.Controlador;
+import java.awt.Color;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author David
  */
 public class InterfazRegistrar extends javax.swing.JFrame {
-
+    
     Controlador objControlador = new Controlador();
     InterfazInicioSesion obxI = new InterfazInicioSesion();
-    InterfazCajero obxCajero=new InterfazCajero();
+    InterfazCajero obxCajero = new InterfazCajero();
+
     /**
      * Creates new form InterfazRegistrar
      */
@@ -62,6 +65,30 @@ public class InterfazRegistrar extends javax.swing.JFrame {
 
         etApellido.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         etApellido.setText("Apellido:");
+
+        jTextUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextUsuarioMouseClicked(evt);
+            }
+        });
+
+        jTextNombre.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextNombreMouseClicked(evt);
+            }
+        });
+
+        jTextApellido.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextApellidoMouseClicked(evt);
+            }
+        });
+
+        jPassword.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPasswordMouseClicked(evt);
+            }
+        });
 
         bRegistrarse.setText("Registrarse");
         bRegistrarse.addActionListener(new java.awt.event.ActionListener() {
@@ -164,14 +191,52 @@ public class InterfazRegistrar extends javax.swing.JFrame {
     }//GEN-LAST:event_bSalirActionPerformed
 
     private void bRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRegistrarseActionPerformed
-        objControlador.registrarUsuario(jTextUsuario.getText(), jPassword.getText(), jTextNombre.getText(), jTextApellido.getText());
-        jTextUsuario.setText(null);
-        jPassword.setText(null);
-        jTextNombre.setText(null);
-        jTextApellido.setText(null);
-        this.setVisible(false);
-        obxCajero.setVisible(true);
+        
+        if (jTextUsuario.getText().isEmpty() || jPassword.getText().isEmpty()
+                || jTextNombre.getText().isEmpty()
+                || jTextApellido.getText().isEmpty()) {
+            
+            JOptionPane.showMessageDialog(null, "Campos obligatorios.");
+            
+            if (jTextUsuario.getText().isEmpty()) {                
+                jTextUsuario.setBackground(Color.red);
+            }
+            if (jPassword.getText().isEmpty()) {
+                jPassword.setBackground(Color.red);
+            }
+            if (jTextNombre.getText().isEmpty()) {
+                jTextNombre.setBackground(Color.red);
+            }
+            if (jTextApellido.getText().isEmpty()) {
+                jTextApellido.setBackground(Color.red);
+            }
+            
+        } else {
+            objControlador.registrarUsuario(jTextUsuario.getText(), jPassword.getText(), jTextNombre.getText(), jTextApellido.getText());
+            jTextUsuario.setText(null);
+            jPassword.setText(null);
+            jTextNombre.setText(null);
+            jTextApellido.setText(null);
+            this.setVisible(false);
+            obxCajero.setVisible(true);
+        }
     }//GEN-LAST:event_bRegistrarseActionPerformed
+
+    private void jTextUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextUsuarioMouseClicked
+        jTextUsuario.setBackground(Color.white);
+    }//GEN-LAST:event_jTextUsuarioMouseClicked
+
+    private void jPasswordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPasswordMouseClicked
+       jPassword.setBackground(Color.white);
+    }//GEN-LAST:event_jPasswordMouseClicked
+
+    private void jTextNombreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextNombreMouseClicked
+        jTextNombre.setBackground(Color.white);
+    }//GEN-LAST:event_jTextNombreMouseClicked
+
+    private void jTextApellidoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextApellidoMouseClicked
+        jTextApellido.setBackground(Color.white);
+    }//GEN-LAST:event_jTextApellidoMouseClicked
 
     /**
      * @param args the command line arguments

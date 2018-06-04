@@ -72,6 +72,7 @@ public class InterfazCajero extends javax.swing.JFrame {
         lblDestino = new javax.swing.JLabel();
         operacion = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        logout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -235,6 +236,13 @@ public class InterfazCajero extends javax.swing.JFrame {
 
         operacion.setText("Bienvenido a Kay&Ve bank!");
 
+        logout.setText("Retirar tarj.");
+        logout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -313,7 +321,9 @@ public class InterfazCajero extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(etImagenInsertar)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(bTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(bTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(logout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(18, 18, 18)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -360,7 +370,9 @@ public class InterfazCajero extends javax.swing.JFrame {
                                 .addGap(47, 47, 47)
                                 .addComponent(etImagenInsertar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(bTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(bTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(logout))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(27, 27, 27)
                                 .addComponent(btIntroducir)
@@ -433,6 +445,7 @@ public class InterfazCajero extends javax.swing.JFrame {
             btRetirar.setEnabled(false);
             btSaldo.setEnabled(false);
             btTransferencia.setEnabled(false);
+            logout.setVisible(false);
 
         } else {
             this.lbIntroducir.setVisible(true);
@@ -446,14 +459,20 @@ public class InterfazCajero extends javax.swing.JFrame {
             btRetirar.setEnabled(true);
             btSaldo.setEnabled(true);
             btTransferencia.setEnabled(true);
+            logout.setVisible(true);
         }
     }
 
 
     private void bTarjetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bTarjetaActionPerformed
-        InterfazInicioSesion obx = new InterfazInicioSesion();
-        obx.setVisible(true);
-        this.setVisible(false);
+
+        if (InterfazInicioSesion.mostrarVar == true) {
+            JOptionPane.showMessageDialog(null, "Ya has iniciado sesión.");
+        } else {
+            InterfazInicioSesion obx = new InterfazInicioSesion();
+            obx.setVisible(true);
+            this.setVisible(false);
+        }
     }//GEN-LAST:event_bTarjetaActionPerformed
 
     String completo = "";
@@ -661,18 +680,47 @@ public class InterfazCajero extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btDarseBajaActionPerformed
 
+    public void reset() {
+        operacion.setText("Bienvenido a Kay&Ve bank!");
+        this.lblIntr.setVisible(false);
+        this.jTxtDinero.setVisible(false);
+        this.lblSal.setVisible(false);
+        this.jTextMostrarSaldo.setVisible(false);
+        this.lblDestino.setVisible(false);
+        this.jTxtDinero.setText("");
+        this.jTextMostrarSaldo.setText("");
+        bot = "";
+        completo = "";
+        op = 0;
+    }
+
+
     private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
         repaint();
         if (InterfazInicioSesion.mostrarVar == true) {
             switch (op) {
+                case 0:
+                    reset();
+                    break;
                 case 1:
-                    objControlador.insertarDinero(jTxtDinero.getText());
+                    if (!jTxtDinero.getText().isEmpty()) {
+                        objControlador.insertarDinero(jTxtDinero.getText());
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Inserte una cantidad.");
+                    }
+                    reset();
                     break;
                 case 2:
-                    objControlador.retirarDinero(jTxtDinero.getText());
+                    if (!jTxtDinero.getText().isEmpty()) {
+                        objControlador.retirarDinero(jTxtDinero.getText());
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Inserte una cantidad.");
+                    }
+                    reset();
                     break;
                 case 3:
                     jTextMostrarSaldo.setText(objControlador.mostrarDinero());
+                    op = 0;
                     break;
                 case 4:
                     break;
@@ -686,28 +734,13 @@ public class InterfazCajero extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(null, "Inicie sesión primero.");
         }
-
-        this.jTextMostrarSaldo.setText("");
-        this.jTxtDinero.setText("");
-        bot = "";
-        completo = "";
-        op = 0;
+        repaint();
     }//GEN-LAST:event_bAceptarActionPerformed
 
     private void bCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCancelarActionPerformed
         repaint();
         if (InterfazInicioSesion.mostrarVar == true) {
-            operacion.setText("Bienvenido a Kay&Ve bank!");
-            this.lblIntr.setVisible(false);
-            this.jTxtDinero.setVisible(false);
-            this.lblSal.setVisible(false);
-            this.jTextMostrarSaldo.setVisible(false);
-            this.lblDestino.setVisible(false);
-            this.jTextMostrarSaldo.setText("");
-            this.jTxtDinero.setText("");
-            bot = "";
-            completo = "";
-            op = 0;
+            reset();
         } else {
             JOptionPane.showMessageDialog(null, "Inicie sesión primero.");
         }
@@ -724,6 +757,13 @@ public class InterfazCajero extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Inicie sesión primero.");
         }
     }//GEN-LAST:event_bBorrarActionPerformed
+
+    private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
+        InterfazInicioSesion.mostrarVar = false;
+        init();
+        this.logout.setVisible(false);
+        repaint();
+    }//GEN-LAST:event_logoutActionPerformed
 
     private void conexionBD() {
         objControlador.conexionBD();
@@ -797,6 +837,7 @@ public class InterfazCajero extends javax.swing.JFrame {
     private javax.swing.JLabel lblSal;
     private javax.swing.JLabel lblSaldo;
     private javax.swing.JLabel lblTrans;
+    private javax.swing.JButton logout;
     private javax.swing.JLabel operacion;
     // End of variables declaration//GEN-END:variables
 }

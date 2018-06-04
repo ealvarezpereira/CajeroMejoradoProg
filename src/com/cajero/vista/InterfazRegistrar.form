@@ -166,12 +166,24 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextUsuario">
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTextUsuarioMouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextNombre">
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTextNombreMouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextApellido">
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTextApellidoMouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JPasswordField" name="jPassword">
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jPasswordMouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="bRegistrarse">
           <Properties>
