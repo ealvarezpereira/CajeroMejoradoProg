@@ -76,7 +76,7 @@ public class Modelo {
     static String id;
     public static boolean iniciado = false;
 
-    public void iniciarSesion(String usu, String contraseña) {
+    public boolean iniciarSesion(String usu, String contraseña) {
 
         String sentencia = "select usuario,ctra from usuario;";
         ConexionesBD.resultSet(sentencia);
@@ -105,6 +105,7 @@ public class Modelo {
         } catch (SQLException ex) {
             System.out.println("ERROR SQL" + ex);
         }
+        return iniciado;
     }
 
     public void sacarID(String usu) {
@@ -113,7 +114,6 @@ public class Modelo {
             String sentenciaID = "select id from usuario where usuario='" + usu + "'";
             ConexionesBD.resultSet(sentenciaID);
             id = ConexionesBD.rs.getString(1);
-            System.out.println(id);
             ConexionesBD.rs.close();
         } catch (SQLException ex) {
             System.out.println("Error al sacar el id. " + ex);
@@ -125,7 +125,6 @@ public class Modelo {
         try {
             String sentenciaDineroActual = "select saldo from saldo where id='" + id + "';";
             ConexionesBD.resultSet(sentenciaDineroActual);
-            System.out.println(ConexionesBD.rs.getString(1));
             int saldoCuenta = Integer.parseInt(ConexionesBD.rs.getString(1));
             ConexionesBD.rs.close();
             int dineroAIngresar = Integer.parseInt(dinero);
@@ -135,7 +134,6 @@ public class Modelo {
         } catch (SQLException ex) {
             System.out.println("Error al insertar dinero. " + ex);
         }
-
     }
 
 }
