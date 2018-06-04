@@ -341,15 +341,20 @@ public class InterfazCajero extends javax.swing.JFrame {
     private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
         if (operaciones.getSelectedIndex() == 0) {
             objControlador.insertarDinero(jTxtDinero.getText());
+            jTxtDinero.setText(null);
+        }else if(operaciones.getSelectedIndex()==1){
+            objControlador.retirarDinero(jTxtDinero.getText());
+            jTxtDinero.setText(null);
         }else if(operaciones.getSelectedIndex()==2){
             jTextMostrarSaldo.setText(objControlador.mostrarDinero());
-            System.out.println(objControlador.mostrarDinero());
-            
+            jTxtDinero.setText(null);
         }
+        
     }//GEN-LAST:event_bAceptarActionPerformed
 
     private void bBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBorrarActionPerformed
        jTxtDinero.setText("");
+       completo="";
     }//GEN-LAST:event_bBorrarActionPerformed
 
     private void bCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCancelarActionPerformed
