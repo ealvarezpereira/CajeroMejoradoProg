@@ -61,7 +61,7 @@ public class InterfazCajero extends javax.swing.JFrame {
         btRetirar = new javax.swing.JButton();
         btSaldo = new javax.swing.JButton();
         btTransferencia = new javax.swing.JButton();
-        jTextMostrarSaldo = new javax.swing.JTextField();
+        jTextMultiusos = new javax.swing.JTextField();
         btDarseBaja = new javax.swing.JButton();
         lbIntroducir = new javax.swing.JLabel();
         lblRetirar = new javax.swing.JLabel();
@@ -211,7 +211,7 @@ public class InterfazCajero extends javax.swing.JFrame {
             }
         });
 
-        jTextMostrarSaldo.setEditable(false);
+        jTextMultiusos.setEditable(false);
 
         btDarseBaja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cajero/images/botonTriangular.png"))); // NOI18N
         btDarseBaja.addActionListener(new java.awt.event.ActionListener() {
@@ -286,7 +286,7 @@ public class InterfazCajero extends javax.swing.JFrame {
                                             .addComponent(jTxtDinero, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(lblSal)
                                             .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jTextMostrarSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jTextMultiusos, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addComponent(lblDestino))
                                             .addComponent(lblIntr))
@@ -356,7 +356,7 @@ public class InterfazCajero extends javax.swing.JFrame {
                                                 .addComponent(lblSal)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                    .addComponent(jTextMostrarSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(jTextMultiusos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addComponent(lblDestino)))
                                             .addGroup(layout.createSequentialGroup()
                                                 .addComponent(lblIntr)
@@ -437,7 +437,7 @@ public class InterfazCajero extends javax.swing.JFrame {
             this.lblIntr.setVisible(false);
             this.jTxtDinero.setVisible(false);
             this.lblSal.setVisible(false);
-            this.jTextMostrarSaldo.setVisible(false);
+            this.jTextMultiusos.setVisible(false);
             this.lblDestino.setVisible(false);
 
             btDarseBaja.setEnabled(false);
@@ -610,8 +610,8 @@ public class InterfazCajero extends javax.swing.JFrame {
             this.lblSal.setVisible(false);
             this.lblIntr.setVisible(true);
             this.jTxtDinero.setVisible(true);
-            this.jTextMostrarSaldo.setVisible(true);
-            this.jTextMostrarSaldo.setEditable(true);
+            this.jTextMultiusos.setVisible(true);
+            this.jTextMultiusos.setEditable(true);
         } else {
             JOptionPane.showMessageDialog(null, "Ya hay otra operación en curso.");
         }
@@ -627,8 +627,8 @@ public class InterfazCajero extends javax.swing.JFrame {
             this.lblIntr.setVisible(false);
             this.jTxtDinero.setVisible(false);
             this.lblSal.setVisible(true);
-            this.jTextMostrarSaldo.setVisible(true);
-            this.jTextMostrarSaldo.setEditable(false);
+            this.jTextMultiusos.setVisible(true);
+            this.jTextMultiusos.setEditable(false);
         } else {
             JOptionPane.showMessageDialog(null, "Ya hay otra operación en curso.");
         }
@@ -643,7 +643,7 @@ public class InterfazCajero extends javax.swing.JFrame {
             op = 2;
             this.lblDestino.setVisible(false);
             this.lblSal.setVisible(false);
-            this.jTextMostrarSaldo.setVisible(false);
+            this.jTextMultiusos.setVisible(false);
             this.lblIntr.setVisible(true);
             this.jTxtDinero.setVisible(true);
         } else {
@@ -660,7 +660,7 @@ public class InterfazCajero extends javax.swing.JFrame {
             op = 1;
             this.lblDestino.setVisible(false);
             this.lblSal.setVisible(false);
-            this.jTextMostrarSaldo.setVisible(false);
+            this.jTextMultiusos.setVisible(false);
             this.lblIntr.setVisible(true);
             this.jTxtDinero.setVisible(true);
         } else {
@@ -685,10 +685,10 @@ public class InterfazCajero extends javax.swing.JFrame {
         this.lblIntr.setVisible(false);
         this.jTxtDinero.setVisible(false);
         this.lblSal.setVisible(false);
-        this.jTextMostrarSaldo.setVisible(false);
+        this.jTextMultiusos.setVisible(false);
         this.lblDestino.setVisible(false);
         this.jTxtDinero.setText("");
-        this.jTextMostrarSaldo.setText("");
+        this.jTextMultiusos.setText("");
         bot = "";
         completo = "";
         op = 0;
@@ -719,14 +719,14 @@ public class InterfazCajero extends javax.swing.JFrame {
                     reset();
                     break;
                 case 3:
-                    jTextMostrarSaldo.setText(objControlador.mostrarDinero());
+                    jTextMultiusos.setText(objControlador.mostrarDinero());
                     op = 0;
                     break;
                 case 4:
                     break;
 
                 case 5:
-                    objControlador.transferir(jTxtDinero.getText());
+                    objControlador.transferir(jTxtDinero.getText(),jTextMultiusos.getText());
                     break;
                 default:
                     JOptionPane.showMessageDialog(null, "Error.");
@@ -749,7 +749,7 @@ public class InterfazCajero extends javax.swing.JFrame {
     private void bBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBorrarActionPerformed
         repaint();
         if (InterfazInicioSesion.mostrarVar == true) {
-            this.jTextMostrarSaldo.setText("");
+            this.jTextMultiusos.setText("");
             this.jTxtDinero.setText("");
             completo = "";
             bot = "";
@@ -827,7 +827,7 @@ public class InterfazCajero extends javax.swing.JFrame {
     private javax.swing.JLabel etImagenInsertar;
     private javax.swing.JLabel etInsertarBilletes;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField jTextMostrarSaldo;
+    private javax.swing.JTextField jTextMultiusos;
     private javax.swing.JTextField jTxtDinero;
     private javax.swing.JLabel lbIntroducir;
     private javax.swing.JLabel lblBaja;

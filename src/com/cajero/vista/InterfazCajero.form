@@ -71,7 +71,7 @@
                                           <Component id="jTxtDinero" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                                           <Component id="lblSal" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jTextMostrarSaldo" min="-2" pref="200" max="-2" attributes="0"/>
+                                              <Component id="jTextMultiusos" min="-2" pref="200" max="-2" attributes="0"/>
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                               <Component id="lblDestino" min="-2" max="-2" attributes="0"/>
                                           </Group>
@@ -165,7 +165,7 @@
                                               <Component id="lblSal" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="3" attributes="0">
-                                                  <Component id="jTextMostrarSaldo" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jTextMultiusos" alignment="3" min="-2" max="-2" attributes="0"/>
                                                   <Component id="lblDestino" alignment="3" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
@@ -449,7 +449,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btTransferenciaActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextMostrarSaldo">
+    <Component class="javax.swing.JTextField" name="jTextMultiusos">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
       </Properties>

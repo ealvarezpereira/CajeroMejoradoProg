@@ -178,40 +178,56 @@ public class Modelo {
 
     }
 
-    public void transferencia(String dinero) {
+    public void transferencia(String dinero, String usuarioTrans) {
 
         try {
+
             String sentenciaDineroActual = "select saldo from saldo where id='" + id + "';";
             ConexionesBD.resultSet(sentenciaDineroActual);
             int saldoCuenta = Integer.parseInt(ConexionesBD.rs.getString(1));
-            int dineroATransferir = 0;
-            if (saldoCuenta != 0) {
+
+            if (saldoCuenta > Integer.parseInt(dinero)) {
+
                 ConexionesBD.rs.close();
-                dineroATransferir = Integer.parseInt(dinero);
-                String sentenciaDineroIntroducido = "update saldo set saldo='" + (saldoCuenta - dineroATransferir) + "' where id='" + id + "';";
-                ConexionesBD.preparedStatement(sentenciaDineroIntroducido);
+
+                String usuarioPrueba = "select id,usuario from usuario where usuario='" + usuarioTrans + "';";
+                String usuarioExistente = "";
+                String idUsuarioExistente = "";
+                ConexionesBD.resultSet(usuarioPrueba);
+                while (ConexionesBD.rs.next()) {
+                    if (ConexionesBD.rs.getString(2).equals(usuarioTrans)) {
+                        usuarioExistente = ConexionesBD.rs.getString(2);
+                        idUsuarioExistente = ConexionesBD.rs.getString(1);
+                    }
+                }
+
+                if (usuarioTrans.equals(usuarioExistente)) {
+
+                    int dineroATransferir = 0;
+
+                    dineroATransferir = Integer.parseInt(dinero);
+                    String sentenciaDineroIntroducido = "update saldo set saldo='" + (saldoCuenta - dineroATransferir) + "' where id='" + id + "';";
+                    ConexionesBD.preparedStatement(sentenciaDineroIntroducido);
+
+                    ConexionesBD.rs.close();
+
+                    String sentenciaDineroUsuarioTrans = "select saldo from saldo where id='" + idUsuarioExistente + "';";
+                    ConexionesBD.resultSet(sentenciaDineroUsuarioTrans);
+                    int dineroASumar = Integer.parseInt(ConexionesBD.rs.getString(1));
+                    ConexionesBD.rs.close();
+
+                    String sentenciaDineroAñadido = "update saldo set saldo='" + (dineroASumar + dineroATransferir) + "' where id='" + idUsuarioExistente + "';";
+                    ConexionesBD.preparedStatement(sentenciaDineroAñadido);
+                } else {
+                    JOptionPane.showMessageDialog(null, "El usuario no existe.", "ERROR", JOptionPane.INFORMATION_MESSAGE, null);
+                }
+
             } else {
                 JOptionPane.showMessageDialog(null, "No hay suficiente saldo en la cuenta.", "ERROR", JOptionPane.INFORMATION_MESSAGE, null);
             }
 
-            String usuarioTrans = JOptionPane.showInputDialog("Nombre del usuario a transferir: ");
-            String usuarioPrueba = "select usuario from usuario where usuario='" + usuarioTrans + "';";
-            ConexionesBD.resultSet(usuarioPrueba);
-
-            if (usuarioTrans == usuarioPrueba) {
-                String sentenciaUsuario = "select id from saldo where usuario='" + usuarioTrans + "';";
-                ConexionesBD.resultSet(sentenciaUsuario);
-                String sentenciaDineroUsuarioTrans = "select saldo from saldo where id='" + sentenciaUsuario + "';";
-                ConexionesBD.resultSet(sentenciaDineroUsuarioTrans);
-                int dineroASumar = Integer.parseInt(sentenciaDineroUsuarioTrans);
-                String sentenciaDineroAñadido = "update saldo set saldo='" + (dineroASumar + dineroATransferir) + "' where id='" + id + "';";
-
-            } else {
-                JOptionPane.showMessageDialog(null, "El usuario no existe.", "ERROR", JOptionPane.INFORMATION_MESSAGE, null);
-            }
-
         } catch (SQLException ex) {
-            System.out.println("Error al insertar dinero. " + ex);
+            JOptionPane.showMessageDialog(null, "Error en la transferencia.");
         }
 
     }
