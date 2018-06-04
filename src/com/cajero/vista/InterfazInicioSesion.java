@@ -163,7 +163,7 @@ public class InterfazInicioSesion extends javax.swing.JFrame {
      */
     private void bIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bIniciarSesionActionPerformed
         if (obxControlador.iniciarSesion(jTextUsuario.getText(), jPassword.getText()) == true) {
-            InterfazCajero.activarJComboBox();
+            obxC.activarJComboBox();
         }
         this.setVisible(false);
         obxC.setVisible(true);
