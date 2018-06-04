@@ -135,5 +135,23 @@ public class Modelo {
             System.out.println("Error al insertar dinero. " + ex);
         }
     }
+    
+    public String mostrarDinero(){
+        String dinero = null;
+        try {
+            
+            String sentenciaDineroActual = "select saldo from saldo where id='" + id + "';";
+            ConexionesBD.resultSet(sentenciaDineroActual);
+            System.out.println(ConexionesBD.rs.getString(1));
+            dinero=ConexionesBD.rs.getString(1);
+            ConexionesBD.rs.close();
+            
+
+        } catch (SQLException ex) {
+            System.out.println("Error al sacar dinero. " + ex);
+        }
+        return dinero;
+        
+    }
 
 }
