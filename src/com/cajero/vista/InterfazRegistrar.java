@@ -15,6 +15,7 @@ public class InterfazRegistrar extends javax.swing.JFrame {
 
     Controlador objControlador = new Controlador();
     InterfazInicioSesion obxI = new InterfazInicioSesion();
+    InterfazCajero obxCajero=new InterfazCajero();
     /**
      * Creates new form InterfazRegistrar
      */
@@ -169,6 +170,7 @@ public class InterfazRegistrar extends javax.swing.JFrame {
         jTextNombre.setText(null);
         jTextApellido.setText(null);
         this.setVisible(false);
+        obxCajero.setVisible(true);
     }//GEN-LAST:event_bRegistrarseActionPerformed
 
     /**
