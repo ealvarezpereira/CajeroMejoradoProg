@@ -20,6 +20,8 @@ public class CajeroMejorado {
         
         InterfazCajero ses = new InterfazCajero();
         ses.setVisible(true);
+
+        
     }
     
 }
