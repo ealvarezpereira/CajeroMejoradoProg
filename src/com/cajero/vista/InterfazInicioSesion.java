@@ -161,9 +161,12 @@ public class InterfazInicioSesion extends javax.swing.JFrame {
     /*
         Clase InterfazInicioSesion, recoge lo que puso el usuario en los jTextField. Y los recoge el metodo "iniciarSesion" de la Clase Controlador.
      */
+    
+    public static boolean mostrarVar;
+    
     private void bIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bIniciarSesionActionPerformed
-        if (obxControlador.iniciarSesion(jTextUsuario.getText(), jPassword.getText()) == true) {
-            obxC.activarJComboBox();
+        if ((mostrarVar = obxControlador.iniciarSesion(jTextUsuario.getText(), jPassword.getText())) == true) {
+            obxC.init();
         }
         this.setVisible(false);
         obxC.setVisible(true);

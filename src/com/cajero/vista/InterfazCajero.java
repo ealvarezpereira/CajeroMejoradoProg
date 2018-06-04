@@ -23,8 +23,7 @@ public class InterfazCajero extends javax.swing.JFrame {
         initComponents();
         conexionBD();
         setLocationRelativeTo(null);
-        operaciones.setEnabled(false);
-        jTxtDinero.setEnabled(false);
+        init();
     }
 
     /**
@@ -52,15 +51,22 @@ public class InterfazCajero extends javax.swing.JFrame {
         bOcho = new javax.swing.JButton();
         bCero = new javax.swing.JButton();
         bNueve = new javax.swing.JButton();
-        panelopciones = new javax.swing.JPanel();
-        operaciones = new javax.swing.JComboBox<>();
         jTxtDinero = new javax.swing.JTextField();
-        btTransferencia = new javax.swing.JButton();
-        btDarseBaja = new javax.swing.JButton();
-        btSaldo = new javax.swing.JButton();
-        btRetirar = new javax.swing.JButton();
+        lblIntr = new javax.swing.JLabel();
         btIntroducir = new javax.swing.JButton();
+        btRetirar = new javax.swing.JButton();
+        btSaldo = new javax.swing.JButton();
+        btTransferencia = new javax.swing.JButton();
         jTextMostrarSaldo = new javax.swing.JTextField();
+        btDarseBaja = new javax.swing.JButton();
+        lbIntroducir = new javax.swing.JLabel();
+        lblRetirar = new javax.swing.JLabel();
+        lblSaldo = new javax.swing.JLabel();
+        lblTrans = new javax.swing.JLabel();
+        lblBaja = new javax.swing.JLabel();
+        lblSal = new javax.swing.JLabel();
+        lblDestino = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -166,90 +172,73 @@ public class InterfazCajero extends javax.swing.JFrame {
             }
         });
 
-        panelopciones.setBackground(new java.awt.Color(255, 255, 255));
-
-        operaciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Introducir dinero", "Retirar dinero", "Mostrar saldo", "Transferencia bancaria", "Darse de baja" }));
-
         jTxtDinero.setEditable(false);
 
-        btTransferencia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cajero/images/botonTriangular.png"))); // NOI18N
-
-        btDarseBaja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cajero/images/botonTriangular.png"))); // NOI18N
-
-        btSaldo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cajero/images/botonTriangular.png"))); // NOI18N
-
-        btRetirar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cajero/images/botonTriangular.png"))); // NOI18N
+        lblIntr.setText("Inserta la cantidad:");
 
         btIntroducir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cajero/images/botonTriangular.png"))); // NOI18N
+        btIntroducir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btIntroducirActionPerformed(evt);
+            }
+        });
 
-        jTextMostrarSaldo.setText("Mostrar Saldo:");
+        btRetirar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cajero/images/botonTriangular.png"))); // NOI18N
+        btRetirar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btRetirarActionPerformed(evt);
+            }
+        });
 
-        javax.swing.GroupLayout panelopcionesLayout = new javax.swing.GroupLayout(panelopciones);
-        panelopciones.setLayout(panelopcionesLayout);
-        panelopcionesLayout.setHorizontalGroup(
-            panelopcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelopcionesLayout.createSequentialGroup()
-                .addGroup(panelopcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelopcionesLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelopcionesLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btRetirar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelopcionesLayout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addGroup(panelopcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelopcionesLayout.createSequentialGroup()
-                                .addComponent(operaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
-                                .addComponent(btTransferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panelopcionesLayout.createSequentialGroup()
-                                .addGroup(panelopcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jTextMostrarSaldo)
-                                    .addComponent(jTxtDinero, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(panelopcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btDarseBaja, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btIntroducir, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap())
-        );
-        panelopcionesLayout.setVerticalGroup(
-            panelopcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelopcionesLayout.createSequentialGroup()
-                .addGroup(panelopcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelopcionesLayout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(operaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28)
-                        .addComponent(jTxtDinero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelopcionesLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btTransferencia)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btDarseBaja)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btSaldo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btRetirar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelopcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btIntroducir)
-                    .addComponent(jTextMostrarSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(16, Short.MAX_VALUE))
-        );
+        btSaldo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cajero/images/botonTriangular.png"))); // NOI18N
+        btSaldo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSaldoActionPerformed(evt);
+            }
+        });
+
+        btTransferencia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cajero/images/botonTriangular.png"))); // NOI18N
+        btTransferencia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btTransferenciaActionPerformed(evt);
+            }
+        });
+
+        jTextMostrarSaldo.setEditable(false);
+
+        btDarseBaja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cajero/images/botonTriangular.png"))); // NOI18N
+        btDarseBaja.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btDarseBajaActionPerformed(evt);
+            }
+        });
+
+        lbIntroducir.setText("Introducir Dinero");
+
+        lblRetirar.setText("Retirar Dinero");
+
+        lblSaldo.setText("Mostrar Saldo");
+
+        lblTrans.setText("Transferencia");
+
+        lblBaja.setText("Darse de Baja");
+
+        lblSal.setText("Saldo en la cuenta:");
+
+        lblDestino.setText("Destino");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(65, 65, 65)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(88, 88, 88)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(bCuatro, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bUno, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bSiete, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(bSiete, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bCuatro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bUno, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
@@ -272,9 +261,51 @@ public class InterfazCajero extends javax.swing.JFrame {
                             .addComponent(bAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(etInsertarBilletes)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(78, 78, 78)
-                        .addComponent(panelopciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(11, 11, 11)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jTxtDinero, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lblSal))
+                                        .addGap(67, 67, 67))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jTextMostrarSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(lblDestino))
+                                    .addComponent(lblIntr))
+                                .addGap(50, 50, 50))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblRetirar)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(1, 1, 1)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(lblTrans)
+                                                .addGap(1, 1, 1))
+                                            .addComponent(lblBaja)))
+                                    .addComponent(lblSaldo))
+                                .addGap(20, 20, 20))
+                            .addComponent(lbIntroducir, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(17, 17, 17)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btDarseBaja, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btTransferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btRetirar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btIntroducir, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(69, 69, 69)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(etImagenInsertar)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -290,12 +321,54 @@ public class InterfazCajero extends javax.swing.JFrame {
                         .addGap(47, 47, 47)
                         .addComponent(etImagenInsertar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(bTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(bTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addComponent(panelopciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)))
+                        .addGap(32, 32, 32)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(19, 19, 19)
+                                .addComponent(lbIntroducir)
+                                .addGap(46, 46, 46)
+                                .addComponent(lblRetirar))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btIntroducir)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btRetirar)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btSaldo)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblSaldo))
+                                .addGap(30, 30, 30)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(lblBaja)
+                                .addGap(56, 56, 56)
+                                .addComponent(lblTrans)
+                                .addGap(22, 22, 22))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btDarseBaja)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btTransferencia))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(90, 90, 90)
+                                .addComponent(lblSal)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jTextMostrarSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblDestino)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblIntr)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTxtDinero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(bUno)
@@ -304,6 +377,7 @@ public class InterfazCajero extends javax.swing.JFrame {
                     .addComponent(bBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(bOcho)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(bSeis)
@@ -315,131 +389,245 @@ public class InterfazCajero extends javax.swing.JFrame {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(bNueve)
                                 .addComponent(bSiete, javax.swing.GroupLayout.Alignment.TRAILING))
-                            .addComponent(bAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(bOcho))
+                            .addComponent(bAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(bCero)
                     .addComponent(etInsertarBilletes))
-                .addGap(7, 7, 7))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public static void activarJComboBox(){
-        operaciones.setEnabled(true);
+    public void init() {
+        if (InterfazInicioSesion.mostrarVar == false) {
+            this.lbIntroducir.setVisible(false);
+            this.lblBaja.setVisible(false);
+            this.lblIntr.setVisible(false);
+            this.lblRetirar.setVisible(false);
+            this.lblSaldo.setVisible(false);
+            this.lblTrans.setVisible(false);
+            this.jTxtDinero.setVisible(false);
+            this.lblSal.setVisible(false);
+            this.jTextMostrarSaldo.setVisible(false);
+            this.lblDestino.setVisible(false);
+
+            btDarseBaja.setEnabled(false);
+            btIntroducir.setEnabled(false);
+            btRetirar.setEnabled(false);
+            btSaldo.setEnabled(false);
+            btTransferencia.setEnabled(false);
+
+        } else {
+            this.lbIntroducir.setVisible(true);
+            this.lblBaja.setVisible(true);
+            this.lblRetirar.setVisible(true);
+            this.lblSaldo.setVisible(true);
+            this.lblTrans.setVisible(true);
+
+            btDarseBaja.setEnabled(true);
+            btIntroducir.setEnabled(true);
+            btRetirar.setEnabled(true);
+            btSaldo.setEnabled(true);
+            btTransferencia.setEnabled(true);
+        }
     }
-    
-    
+
+    public void activarJComboBox() {
+        btIntroducir.setEnabled(true);
+    }
+
+
     private void bTarjetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bTarjetaActionPerformed
         InterfazInicioSesion obx = new InterfazInicioSesion();
         obx.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_bTarjetaActionPerformed
 
-    private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
-        if (operaciones.getSelectedIndex() == 0) {
-            objControlador.insertarDinero(jTxtDinero.getText());
-        }else if(operaciones.getSelectedIndex()==2){
-            jTextMostrarSaldo.setText(objControlador.mostrarDinero());
-            System.out.println(objControlador.mostrarDinero());
-            
-        }
-    }//GEN-LAST:event_bAceptarActionPerformed
-
-    private void bBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBorrarActionPerformed
-       jTxtDinero.setText("");
-    }//GEN-LAST:event_bBorrarActionPerformed
-
-    private void bCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCancelarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bCancelarActionPerformed
-
     String completo = "";
     String bot;
 
     private void bCeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCeroActionPerformed
-        bot = "0";
-        completo = completo + bot;
-        this.jTxtDinero.setText(completo);
+        if (InterfazInicioSesion.mostrarVar == true) {
+            bot = "0";
+            completo = completo + bot;
+            this.jTxtDinero.setText(completo);
+        } else {
+            JOptionPane.showMessageDialog(null, "Inicie sesión primero.");
+        }
+
     }//GEN-LAST:event_bCeroActionPerformed
 
     private void bNueveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bNueveActionPerformed
-        bot = "9";
-        completo = completo + bot;
-        this.jTxtDinero.setText(completo);
+        if (InterfazInicioSesion.mostrarVar == true) {
+            bot = "9";
+            completo = completo + bot;
+            this.jTxtDinero.setText(completo);
+        } else {
+            JOptionPane.showMessageDialog(null, "Inicie sesión primero.");
+        }
     }//GEN-LAST:event_bNueveActionPerformed
 
     private void bOchoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bOchoActionPerformed
-        bot = "8";
-        completo = completo + bot;
-        this.jTxtDinero.setText(completo);
+        if (InterfazInicioSesion.mostrarVar == true) {
+            bot = "8";
+            completo = completo + bot;
+            this.jTxtDinero.setText(completo);
+        } else {
+            JOptionPane.showMessageDialog(null, "Inicie sesión primero.");
+        }
     }//GEN-LAST:event_bOchoActionPerformed
 
     private void bSieteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSieteActionPerformed
-        bot = "7";
-        completo = completo + bot;
-        this.jTxtDinero.setText(completo);
+        if (InterfazInicioSesion.mostrarVar == true) {
+            bot = "7";
+            completo = completo + bot;
+            this.jTxtDinero.setText(completo);
+        } else {
+            JOptionPane.showMessageDialog(null, "Inicie sesión primero.");
+        }
     }//GEN-LAST:event_bSieteActionPerformed
 
     private void bSeisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSeisActionPerformed
-        bot = "6";
-        completo = completo + bot;
-        this.jTxtDinero.setText(completo);
+        if (InterfazInicioSesion.mostrarVar == true) {
+            bot = "6";
+            completo = completo + bot;
+            this.jTxtDinero.setText(completo);
+        } else {
+            JOptionPane.showMessageDialog(null, "Inicie sesión primero.");
+        }
     }//GEN-LAST:event_bSeisActionPerformed
 
     private void bCincoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCincoActionPerformed
-        bot = "5";
-        completo = completo + bot;
-        this.jTxtDinero.setText(completo);
+        if (InterfazInicioSesion.mostrarVar == true) {
+            bot = "5";
+            completo = completo + bot;
+            this.jTxtDinero.setText(completo);
+        } else {
+            JOptionPane.showMessageDialog(null, "Inicie sesión primero.");
+        }
     }//GEN-LAST:event_bCincoActionPerformed
 
     private void bCuatroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCuatroActionPerformed
-        bot = "4";
-        completo = completo + bot;
-        this.jTxtDinero.setText(completo);
+        if (InterfazInicioSesion.mostrarVar == true) {
+            bot = "4";
+            completo = completo + bot;
+            this.jTxtDinero.setText(completo);
+        } else {
+            JOptionPane.showMessageDialog(null, "Inicie sesión primero.");
+        }
     }//GEN-LAST:event_bCuatroActionPerformed
 
     private void bTresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bTresActionPerformed
-        bot = "3";
-        completo = completo + bot;
-        this.jTxtDinero.setText(completo);
+        if (InterfazInicioSesion.mostrarVar == true) {
+            bot = "3";
+            completo = completo + bot;
+            this.jTxtDinero.setText(completo);
+        } else {
+            JOptionPane.showMessageDialog(null, "Inicie sesión primero.");
+        }
     }//GEN-LAST:event_bTresActionPerformed
 
     private void bDosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDosActionPerformed
-        bot = "2";
-        completo = completo + bot;
-        this.jTxtDinero.setText(completo);
+        if (InterfazInicioSesion.mostrarVar == true) {
+            bot = "2";
+            completo = completo + bot;
+            this.jTxtDinero.setText(completo);
+        } else {
+            JOptionPane.showMessageDialog(null, "Inicie sesión primero.");
+        }
     }//GEN-LAST:event_bDosActionPerformed
 
     private void bUnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bUnoActionPerformed
-        bot = "1";
-        completo = completo + bot;
-        this.jTxtDinero.setText(completo);
+        if (InterfazInicioSesion.mostrarVar == true) {
+            bot = "1";
+            completo = completo + bot;
+            this.jTxtDinero.setText(completo);
+        } else {
+            JOptionPane.showMessageDialog(null, "Inicie sesión primero.");
+        }
     }//GEN-LAST:event_bUnoActionPerformed
+
+    int op;
+
+    private void btTransferenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTransferenciaActionPerformed
+        op = 5;
+        this.lblDestino.setVisible(true);
+        this.lblSal.setVisible(false);
+        this.lblIntr.setVisible(true);
+        this.jTxtDinero.setVisible(true);
+        this.jTextMostrarSaldo.setVisible(true);
+        this.jTextMostrarSaldo.setEditable(true);
+    }//GEN-LAST:event_btTransferenciaActionPerformed
+
+    private void btSaldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSaldoActionPerformed
+        op = 3;
+        this.lblDestino.setVisible(false);
+        this.lblIntr.setVisible(false);
+        this.jTxtDinero.setVisible(false);
+        this.lblSal.setVisible(true);
+        this.jTextMostrarSaldo.setVisible(true);
+        this.jTextMostrarSaldo.setEditable(false);
+    }//GEN-LAST:event_btSaldoActionPerformed
+
+    private void btRetirarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRetirarActionPerformed
+        op = 2;
+    }//GEN-LAST:event_btRetirarActionPerformed
+
+    private void btIntroducirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btIntroducirActionPerformed
+        op = 1;
+        this.lblDestino.setVisible(false);
+        this.lblSal.setVisible(false);
+        this.jTextMostrarSaldo.setVisible(false);
+        this.lblIntr.setVisible(true);
+        this.jTxtDinero.setVisible(true);
+
+    }//GEN-LAST:event_btIntroducirActionPerformed
+
+    private void btDarseBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDarseBajaActionPerformed
+        op = 4;
+    }//GEN-LAST:event_btDarseBajaActionPerformed
+
+    private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
+        if (InterfazInicioSesion.mostrarVar == true) {
+            switch (op) {
+                case 1:
+                    objControlador.insertarDinero(jTxtDinero.getText());
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    jTextMostrarSaldo.setText(objControlador.mostrarDinero());
+                    break;
+                default:
+                    JOptionPane.showMessageDialog(null, "Error.");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Inicie sesión primero.");
+        }
+    }//GEN-LAST:event_bAceptarActionPerformed
+
+    private void bCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCancelarActionPerformed
+        if (InterfazInicioSesion.mostrarVar == true) {
+        } else {
+            JOptionPane.showMessageDialog(null, "Inicie sesión primero.");
+        }
+    }//GEN-LAST:event_bCancelarActionPerformed
+
+    private void bBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBorrarActionPerformed
+        if (InterfazInicioSesion.mostrarVar == true) {
+            this.jTextMostrarSaldo.setText("");
+            this.jTxtDinero.setText("");
+            completo = "";
+            bot = "";
+        } else {
+            JOptionPane.showMessageDialog(null, "Inicie sesión primero.");
+        }
+    }//GEN-LAST:event_bBorrarActionPerformed
 
     private void conexionBD() {
         objControlador.conexionBD();
-    }
-
-    public void aceptar() {
-
-        /*
-        if (jopcion.getSelectedIndex() == 2) {
-            caj.eliminarCuenta();
-            setVisible(false);
-            Display dis = new Display();
-            dis.setVisible(true);
-            Display.txtCtra.setText(null);
-        } else if (jopcion.getSelectedIndex() == 4) {
-            caj.mostrarSaldo();
-        } else {
-            IntroducirDinero bot = new IntroducirDinero();
-            bot.setVisible(true);
-            setVisible(false);
-        }
-         */
     }
 
     /**
@@ -499,9 +687,16 @@ public class InterfazCajero extends javax.swing.JFrame {
     private javax.swing.JButton btTransferencia;
     private javax.swing.JLabel etImagenInsertar;
     private javax.swing.JLabel etInsertarBilletes;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField jTextMostrarSaldo;
     private javax.swing.JTextField jTxtDinero;
-    private static javax.swing.JComboBox<String> operaciones;
-    private javax.swing.JPanel panelopciones;
+    private javax.swing.JLabel lbIntroducir;
+    private javax.swing.JLabel lblBaja;
+    private javax.swing.JLabel lblDestino;
+    private javax.swing.JLabel lblIntr;
+    private javax.swing.JLabel lblRetirar;
+    private javax.swing.JLabel lblSal;
+    private javax.swing.JLabel lblSaldo;
+    private javax.swing.JLabel lblTrans;
     // End of variables declaration//GEN-END:variables
 }
