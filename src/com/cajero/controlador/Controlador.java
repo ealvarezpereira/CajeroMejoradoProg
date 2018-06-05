@@ -5,7 +5,7 @@
  */
 package com.cajero.controlador;
 
-import com.cajero.modelo.Modelo;
+import com.cajero.modelo.FuncionamientoCajero;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
@@ -15,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Controlador {
 
-    Modelo objModelo = new Modelo();
+    FuncionamientoCajero objModelo = new FuncionamientoCajero();
 
     public void conexionBD() {
         objModelo.conexionBD();
@@ -34,7 +34,7 @@ public class Controlador {
     }
 
     public boolean mostrarComboBox() {
-        return Modelo.iniciado;
+        return FuncionamientoCajero.iniciado;
     }
 
     public String mostrarDinero() {
