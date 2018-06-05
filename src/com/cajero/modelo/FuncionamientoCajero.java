@@ -9,6 +9,8 @@ import com.cajero.libreria.ConexionesBD;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -89,7 +91,7 @@ public class FuncionamientoCajero {
             existe = false;
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null,"Error al sacar los usuarios de la tabla. Metodo registrarUsuario de la clase Modelo" + ex);
+            JOptionPane.showMessageDialog(null, "Error al sacar los usuarios de la tabla. Metodo registrarUsuario de la clase Modelo" + ex);
         }
 
     }
@@ -124,7 +126,7 @@ public class FuncionamientoCajero {
             }
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null,"Error al iniciar sesión." + ex);
+            JOptionPane.showMessageDialog(null, "Error al iniciar sesión." + ex);
         }
         return iniciado;
     }
@@ -158,7 +160,7 @@ public class FuncionamientoCajero {
                 JOptionPane.showMessageDialog(null, "Inserción realizada correctamente.");
             }
         } catch (SQLException ex) {
-           JOptionPane.showMessageDialog(null,"Error al insertar dinero. " + ex);
+            JOptionPane.showMessageDialog(null, "Error al insertar dinero. " + ex);
         }
     }
 
@@ -172,7 +174,7 @@ public class FuncionamientoCajero {
             ConexionesBD.rs.close();
 
         } catch (SQLException ex) {
-           JOptionPane.showMessageDialog(null,"Error al sacar dinero. " + ex);
+            JOptionPane.showMessageDialog(null, "Error al sacar dinero. " + ex);
         }
         return dinero;
 
@@ -214,8 +216,10 @@ public class FuncionamientoCajero {
                 JOptionPane.showMessageDialog(null, "Campos vacíos o cantidad a transferir = 0");
 
             } else {
-                String unoMismo = "select nombre from usuario where id = '" + id + "';";
+                String unoMismo = "select usuario from usuario where id = '" + id + "';";
                 ConexionesBD.resultSet(unoMismo);
+//                JOptionPane.showMessageDialog(null, usuarioTrans);
+//                JOptionPane.showMessageDialog(null, ConexionesBD.rs.getString(1));
                 if (!usuarioTrans.equals(ConexionesBD.rs.getString(1))) {
                     ConexionesBD.rs.close();
 
@@ -298,7 +302,7 @@ public class FuncionamientoCajero {
         try {
 
             String sentencia = "select * from operaciones where id = '" + id + "';";
-            
+
             ConexionesBD.resultSet(sentencia);
 
             for (int i = 0; i < ConexionesBD.rs.getMetaData().getColumnCount(); i++) {
@@ -313,7 +317,7 @@ public class FuncionamientoCajero {
                 }
                 mimodelo.addRow(list);
             }
-            
+
             ConexionesBD.rs.close();
 
         } catch (SQLException ex) {
@@ -321,5 +325,52 @@ public class FuncionamientoCajero {
         }
 
         return mimodelo;
+    }
+
+    ArrayList<String> campos = new ArrayList<String>();
+
+    public ArrayList<String> devolverCamposAModifUsuario() {
+
+        try {
+            String sel = "select usuario,ctra,nombre,apellido from usuario where id = '" + id + "';";
+            ConexionesBD.resultSet(sel);
+            for (int i = 0; i < ConexionesBD.rs.getMetaData().getColumnCount(); i++) {
+                campos.add(ConexionesBD.rs.getString(i + 1));
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al modificar usuario. " + ex);
+        }
+        return campos;
+    }
+
+    public void modificarUsuario(String usu, String ctra, String nombre, String apellido) {
+
+        boolean exists = false;
+        try {
+            String comprobarUsuario = "select usuario from usuario where id <> '" + id + "';";
+
+            ConexionesBD.resultSet(comprobarUsuario);
+
+            while (ConexionesBD.rs.next()) {
+                System.out.println(ConexionesBD.rs.getString(1));
+                if (!ConexionesBD.rs.getString(1).equals(usu)) {
+                    exists = false;
+                } else {
+                    exists = true;
+                }
+            }
+            
+            if (exists == false) {
+                String update = "update usuario set usuario= '" + usu + "', ctra = '" + ctra + "', nombre = '" 
+                        + nombre + "', apellido = '" + apellido + "' where id = '"+id+"';";
+                ConexionesBD.preparedStatement(update);
+                JOptionPane.showMessageDialog(null, "Usuario modificado correctamente.");
+            } else {
+                JOptionPane.showMessageDialog(null, "Usuario existente. ");
+            }
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al modificar los datos.");
+        }
     }
 }

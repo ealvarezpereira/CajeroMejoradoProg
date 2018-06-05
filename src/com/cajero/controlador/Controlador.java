@@ -64,4 +64,16 @@ public class Controlador {
         DefaultTableModel modelo = new DefaultTableModel();
         return modelo = objModelo.rellenarTablaOperaciones();
     }
+        
+        
+            ArrayList<String> campos = new ArrayList<String>();
+
+    public ArrayList<String> modificarUsuarioCampos() {
+        campos = objModelo.devolverCamposAModifUsuario();
+        return campos;
+    }
+    
+    public void modificarUsuario(String usu, String ctra, String nombre, String apellido){
+        objModelo.modificarUsuario(usu, ctra, nombre, apellido);
+    }
 }

@@ -78,6 +78,7 @@ public class InterfazCajero extends javax.swing.JFrame {
         logout = new javax.swing.JButton();
         usuarios = new javax.swing.JComboBox<>();
         btUltOpr = new javax.swing.JButton();
+        btModificarUsr = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -257,6 +258,13 @@ public class InterfazCajero extends javax.swing.JFrame {
             }
         });
 
+        btModificarUsr.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cajero/images/botonModificar.png"))); // NOI18N
+        btModificarUsr.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btModificarUsrActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -264,33 +272,6 @@ public class InterfazCajero extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(65, 65, 65)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(bSiete, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bCuatro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bUno, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(bDos, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(bTres, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(bOcho, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(bCinco, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(bCero, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(bSeis, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(bNueve, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(76, 76, 76)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(bCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(bBorrar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(etInsertarBilletes))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -325,7 +306,7 @@ public class InterfazCajero extends javax.swing.JFrame {
                                                 .addGap(20, 20, 20))
                                             .addComponent(lbIntroducir, javax.swing.GroupLayout.Alignment.TRAILING)))
                                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 442, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(operacion, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(operacion, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btDarseBaja, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -339,79 +320,104 @@ public class InterfazCajero extends javax.swing.JFrame {
                         .addGap(68, 68, 68)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(etImagenInsertar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btUltOpr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(bTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(logout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(18, 18, 18))
-                            .addComponent(btUltOpr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addGap(18, 18, 18))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(bSiete, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bCuatro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bUno, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(bDos, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(bTres, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(bOcho, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(bCinco, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(bCero, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(bSeis, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(bNueve, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(76, 76, 76)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(bAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(bBorrar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(etInsertarBilletes))
+                            .addComponent(bCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(199, 199, 199)
+                        .addComponent(btModificarUsr, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(operacion, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(24, 24, 24))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(btUltOpr)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(etImagenInsertar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(bTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(logout))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(btIntroducir)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btRetirar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btSaldo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btDarseBaja)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btTransferencia))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(51, 51, 51)
+                                .addComponent(lbIntroducir)
+                                .addGap(46, 46, 46)
+                                .addComponent(lblRetirar)
+                                .addGap(46, 46, 46)
+                                .addComponent(lblSaldo)
+                                .addGap(30, 30, 30)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(36, 36, 36)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(51, 51, 51)
-                                        .addComponent(lbIntroducir)
-                                        .addGap(46, 46, 46)
-                                        .addComponent(lblRetirar)
-                                        .addGap(46, 46, 46)
-                                        .addComponent(lblSaldo)
-                                        .addGap(30, 30, 30)
-                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(90, 90, 90)
+                                        .addComponent(lblSal)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(JTextMostrarSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(36, 36, 36)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(90, 90, 90)
-                                                .addComponent(lblSal)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(JTextMostrarSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(lblIntr)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jTxtDinero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblBaja)
-                                        .addGap(56, 56, 56))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(lblDestino)
-                                            .addComponent(usuarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(43, 43, 43)))
-                                .addComponent(lblTrans))
+                                        .addComponent(lblIntr)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jTxtDinero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(btUltOpr)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(etImagenInsertar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(bTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(logout))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(27, 27, 27)
-                                .addComponent(btIntroducir)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btRetirar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btSaldo)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btDarseBaja)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btTransferencia)))
-                        .addGap(44, 44, 44)))
+                                .addComponent(lblBaja)
+                                .addGap(56, 56, 56))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblDestino)
+                                    .addComponent(usuarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(43, 43, 43)))
+                        .addComponent(lblTrans)
+                        .addGap(13, 13, 13)
+                        .addComponent(operacion, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(bUno)
@@ -422,22 +428,28 @@ public class InterfazCajero extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(bOcho)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(bSeis)
-                            .addComponent(bCinco)
-                            .addComponent(bCuatro)
-                            .addComponent(bCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(bCancelar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(bSeis, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(bCuatro, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(bCinco, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(bNueve)
-                                .addComponent(bSiete, javax.swing.GroupLayout.Alignment.TRAILING))
-                            .addComponent(bAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(bSiete, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(bAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bNueve, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(bCero)
-                    .addComponent(etInsertarBilletes))
-                .addContainerGap(7, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btModificarUsr, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(etInsertarBilletes)
+                            .addComponent(bCero))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         pack();
@@ -467,6 +479,7 @@ public class InterfazCajero extends javax.swing.JFrame {
             this.lblDestino.setVisible(false);
             this.usuarios.setVisible(false);
 
+            btModificarUsr.setVisible(false);
             btDarseBaja.setEnabled(false);
             btIntroducir.setEnabled(false);
             btRetirar.setEnabled(false);
@@ -482,6 +495,7 @@ public class InterfazCajero extends javax.swing.JFrame {
             this.lblSaldo.setVisible(true);
             this.lblTrans.setVisible(true);
 
+            btModificarUsr.setVisible(true);
             btDarseBaja.setEnabled(true);
             btIntroducir.setEnabled(true);
             btRetirar.setEnabled(true);
@@ -633,17 +647,18 @@ public class InterfazCajero extends javax.swing.JFrame {
     private void btTransferenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTransferenciaActionPerformed
         repaint();
         if (op == 0) {
-            operacion.setText("Operación: Transferencia bancaria.");
+            operacion.setText("Operación: Transferencia bancaria. Pulse cancelar para salir.");
             op = 5;
             this.lblDestino.setVisible(true);
             this.lblSal.setVisible(false);
+            this.JTextMostrarSaldo.setVisible(false);
             this.lblIntr.setVisible(true);
             this.jTxtDinero.setVisible(true);
             this.usuarios.setVisible(true);
         } else {
             JOptionPane.showMessageDialog(null, "Ya hay otra operación en curso.");
         }
-
+        repaint();
     }//GEN-LAST:event_btTransferenciaActionPerformed
 
     private void btSaldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSaldoActionPerformed
@@ -667,7 +682,7 @@ public class InterfazCajero extends javax.swing.JFrame {
     private void btRetirarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRetirarActionPerformed
         repaint();
         if (op == 0) {
-            operacion.setText("Operación: Retirar dinero.");
+            operacion.setText("Operación: Retirar dinero. Pulse cancelar para salir.");
             op = 2;
             this.lblDestino.setVisible(false);
             this.lblSal.setVisible(false);
@@ -684,7 +699,7 @@ public class InterfazCajero extends javax.swing.JFrame {
     private void btIntroducirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btIntroducirActionPerformed
         repaint();
         if (op == 0) {
-            operacion.setText("Operación: Ingresar dinero.");
+            operacion.setText("Operación: Ingresar dinero. Pulse cancelar para salir.");
             op = 1;
             this.lblDestino.setVisible(false);
             this.lblSal.setVisible(false);
@@ -701,7 +716,7 @@ public class InterfazCajero extends javax.swing.JFrame {
     private void btDarseBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDarseBajaActionPerformed
         repaint();
         if (op == 0) {
-            operacion.setText("Operación: Darse de baja.");
+            operacion.setText("Operación: Darse de baja. Pulse cancelar para salir.");
             op = 4;
         } else {
             JOptionPane.showMessageDialog(null, "Ya hay otra operación en curso.");
@@ -751,6 +766,7 @@ public class InterfazCajero extends javax.swing.JFrame {
 
                 case 3:
                     JTextMostrarSaldo.setText(objControlador.mostrarDinero());
+                    op = 0;
                     break;
 
                 case 4:
@@ -834,6 +850,10 @@ public class InterfazCajero extends javax.swing.JFrame {
         t.setVisible(true);
 
     }//GEN-LAST:event_btUltOprActionPerformed
+    private void btModificarUsrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btModificarUsrActionPerformed
+        ModificarUsuario modif = new ModificarUsuario();
+        modif.setVisible(true);
+    }//GEN-LAST:event_btModificarUsrActionPerformed
 
     private void conexionBD() {
         objControlador.conexionBD();
@@ -892,6 +912,7 @@ public class InterfazCajero extends javax.swing.JFrame {
     private javax.swing.JButton bUno;
     private javax.swing.JButton btDarseBaja;
     private javax.swing.JButton btIntroducir;
+    private javax.swing.JButton btModificarUsr;
     private javax.swing.JButton btRetirar;
     private javax.swing.JButton btSaldo;
     private javax.swing.JButton btTransferencia;

@@ -27,43 +27,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="bSiete" alignment="1" min="-2" pref="46" max="-2" attributes="0"/>
-                          <Component id="bCuatro" alignment="1" min="-2" pref="46" max="-2" attributes="0"/>
-                          <Component id="bUno" alignment="1" min="-2" pref="46" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="bDos" min="-2" pref="46" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="bTres" min="-2" pref="46" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="bOcho" min="-2" pref="46" max="-2" attributes="0"/>
-                                  <Component id="bCinco" min="-2" pref="46" max="-2" attributes="0"/>
-                                  <Component id="bCero" alignment="1" min="-2" pref="46" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="bSeis" min="-2" pref="46" max="-2" attributes="0"/>
-                                  <Component id="bNueve" min="-2" pref="46" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="bCancelar" min="-2" pref="131" max="-2" attributes="0"/>
-                          <Component id="bAceptar" alignment="0" min="-2" pref="131" max="-2" attributes="0"/>
-                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                              <Component id="bBorrar" alignment="0" min="-2" pref="131" max="-2" attributes="0"/>
-                              <Component id="etInsertarBilletes" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                  </Group>
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
@@ -110,7 +74,7 @@
                                   <Component id="jLabel1" min="-2" pref="442" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <Component id="operacion" alignment="0" min="-2" pref="310" max="-2" attributes="0"/>
+                          <Component id="operacion" alignment="0" min="-2" pref="381" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -128,6 +92,7 @@
                       <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="etImagenInsertar" max="32767" attributes="0"/>
+                          <Component id="btUltOpr" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                   <Component id="bTarjeta" min="-2" pref="121" max="-2" attributes="0"/>
@@ -135,11 +100,48 @@
                               </Group>
                               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="btUltOpr" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="bSiete" alignment="1" min="-2" pref="46" max="-2" attributes="0"/>
+                          <Component id="bCuatro" alignment="1" min="-2" pref="46" max="-2" attributes="0"/>
+                          <Component id="bUno" alignment="1" min="-2" pref="46" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="bDos" min="-2" pref="46" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="bTres" min="-2" pref="46" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="bOcho" min="-2" pref="46" max="-2" attributes="0"/>
+                                  <Component id="bCinco" min="-2" pref="46" max="-2" attributes="0"/>
+                                  <Component id="bCero" alignment="1" min="-2" pref="46" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="bSeis" min="-2" pref="46" max="-2" attributes="0"/>
+                                  <Component id="bNueve" min="-2" pref="46" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="bAceptar" alignment="0" min="-2" pref="131" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                              <Component id="bBorrar" alignment="0" min="-2" pref="131" max="-2" attributes="0"/>
+                              <Component id="etInsertarBilletes" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="bCancelar" alignment="0" min="-2" pref="131" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="199" max="-2" attributes="0"/>
+                      <Component id="btModificarUsr" min="-2" pref="59" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace min="34" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -147,84 +149,77 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                      <Component id="btUltOpr" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="operacion" min="-2" pref="44" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                      <Component id="etImagenInsertar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="bTarjeta" min="-2" pref="189" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="logout" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                      <Component id="btIntroducir" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="btRetirar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+                      <Component id="btSaldo" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="btDarseBaja" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+                      <Component id="btTransferencia" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-                                      <Component id="lbIntroducir" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                                      <Component id="lblRetirar" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                                      <Component id="lblSaldo" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                                      <Component id="jLabel1" min="-2" pref="12" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="90" pref="90" max="-2" attributes="0"/>
-                                              <Component id="lblSal" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="JTextMostrarSaldo" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="lblIntr" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="jTxtDinero" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="lblBaja" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="lblDestino" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="usuarios" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Component id="lblTrans" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                              <Component id="lbIntroducir" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                              <Component id="lblRetirar" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                              <Component id="lblSaldo" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="jLabel1" min="-2" pref="12" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                              <Component id="btUltOpr" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="etImagenInsertar" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="bTarjeta" min="-2" pref="189" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="logout" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                              <Component id="btIntroducir" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="btRetirar" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
-                              <Component id="btSaldo" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="btDarseBaja" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
-                              <Component id="btTransferencia" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="90" pref="90" max="-2" attributes="0"/>
+                                      <Component id="lblSal" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="JTextMostrarSaldo" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="lblIntr" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jTxtDinero" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="lblBaja" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblDestino" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="usuarios" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Component id="lblTrans" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                      <Component id="operacion" min="-2" pref="44" max="-2" attributes="0"/>
                   </Group>
               </Group>
+              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                       <Component id="bUno" min="-2" max="-2" attributes="0"/>
@@ -237,28 +232,37 @@
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="bOcho" alignment="1" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="bSeis" min="-2" max="-2" attributes="0"/>
-                          <Component id="bCinco" min="-2" max="-2" attributes="0"/>
-                          <Component id="bCuatro" min="-2" max="-2" attributes="0"/>
-                          <Component id="bCancelar" min="-2" pref="49" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="bCancelar" alignment="1" min="-2" pref="49" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="bSeis" max="32767" attributes="0"/>
+                              <Component id="bCuatro" alignment="0" max="32767" attributes="0"/>
+                              <Component id="bCinco" alignment="0" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                              <Component id="bNueve" min="-2" max="-2" attributes="0"/>
-                              <Component id="bSiete" alignment="1" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="bSiete" alignment="0" max="32767" attributes="0"/>
                           <Component id="bAceptar" min="-2" pref="49" max="-2" attributes="0"/>
+                          <Component id="bNueve" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="bCero" min="-2" max="-2" attributes="0"/>
-                  <Component id="etInsertarBilletes" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="btModificarUsr" min="-2" pref="59" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="etInsertarBilletes" min="-2" max="-2" attributes="0"/>
+                          <Component id="bCero" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace pref="7" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -554,6 +558,16 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btUltOprActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btModificarUsr">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/com/cajero/images/botonModificar.png"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btModificarUsrActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
