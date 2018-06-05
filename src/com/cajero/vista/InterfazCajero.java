@@ -239,7 +239,7 @@ public class InterfazCajero extends javax.swing.JFrame {
 
         lblDestino.setText("Destino");
 
-        operacion.setText("Bienvenido a Kay&Ve bank!");
+        operacion.setText("Bienvenido a Kyda Bank!");
 
         logout.setText("Retirar tarj.");
         logout.addActionListener(new java.awt.event.ActionListener() {
@@ -709,7 +709,7 @@ public class InterfazCajero extends javax.swing.JFrame {
     }//GEN-LAST:event_btDarseBajaActionPerformed
 
     public void reset() {
-        operacion.setText("Bienvenido a Kay&Ve bank!");
+        operacion.setText("Bienvenido a Kyda Bank!");
         this.lblIntr.setVisible(false);
         this.jTxtDinero.setVisible(false);
         this.lblSal.setVisible(false);
@@ -806,7 +806,7 @@ public class InterfazCajero extends javax.swing.JFrame {
 
     private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
         InterfazInicioSesion.mostrarVar = false;
-        operacion.setText("Bienvenido a Kay&Ve bank!");
+        operacion.setText("Bienvenido a Kyda Bank!");
         init();
         this.logout.setVisible(false);
         repaint();

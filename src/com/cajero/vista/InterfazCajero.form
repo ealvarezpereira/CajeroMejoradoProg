@@ -520,7 +520,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="operacion">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Bienvenido a Kay&amp;Ve bank!"/>
+        <Property name="text" type="java.lang.String" value="Bienvenido a Kyda Bank!"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
