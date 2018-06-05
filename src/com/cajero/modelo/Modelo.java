@@ -7,7 +7,10 @@ package com.cajero.modelo;
 
 import com.cajero.libreria.ConexionesBD;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -21,6 +24,23 @@ public class Modelo {
     public void conexionBD() {
         String url = "jdbc:sqlite:" + "cajero.db";
         ConexionesBD.conexionBase(url);
+    }
+
+    ArrayList<String> usrs = new ArrayList<String>();
+
+    public ArrayList<String> usuarios() {
+
+        try {
+            String sentencia = "select usuario,ctra from usuario;";
+            ConexionesBD.resultSet(sentencia);
+            while (ConexionesBD.rs.next()) {
+                usrs.add(ConexionesBD.rs.getString(1));
+            }
+            ConexionesBD.rs.close();
+        } catch (SQLException ex) {
+            System.out.println("Error al recibir los usuarios de la base de datos.");
+        }
+        return usrs;
     }
 
     /**
@@ -62,13 +82,14 @@ public class Modelo {
 
                 String saldo = "insert into saldo values (" + "'" + id + "', " + "'0');";
                 ConexionesBD.preparedStatement(saldo);
+                JOptionPane.showMessageDialog(null, "Usuario registrado correctamente.");
             }
 
             ConexionesBD.rs.close();
             existe = false;
 
         } catch (SQLException ex) {
-            System.out.println("Error al sacar los usuarios de la tabla. Metodo registrarUsuario de la clase Modelo" + ex);
+            JOptionPane.showMessageDialog(null,"Error al sacar los usuarios de la tabla. Metodo registrarUsuario de la clase Modelo" + ex);
         }
 
     }
@@ -103,7 +124,7 @@ public class Modelo {
             }
 
         } catch (SQLException ex) {
-            System.out.println("ERROR SQL" + ex);
+            JOptionPane.showMessageDialog(null,"Error al iniciar sesión." + ex);
         }
         return iniciado;
     }
@@ -123,16 +144,21 @@ public class Modelo {
     public void insertarDinero(String dinero) {
 
         try {
-            String sentenciaDineroActual = "select saldo from saldo where id='" + id + "';";
-            ConexionesBD.resultSet(sentenciaDineroActual);
-            int saldoCuenta = Integer.parseInt(ConexionesBD.rs.getString(1));
-            ConexionesBD.rs.close();
-            int dineroAIngresar = Integer.parseInt(dinero);
-            String sentenciaDineroIntroducido = "update saldo set saldo='" + (saldoCuenta + dineroAIngresar) + "' where id='" + id + "';";
-            ConexionesBD.preparedStatement(sentenciaDineroIntroducido);
-
+            if (dinero.equals("0")) {
+                JOptionPane.showMessageDialog(null, "No puedes insertar una cantidad = 0.");
+            } else {
+                String sentenciaDineroActual = "select saldo from saldo where id='" + id + "';";
+                ConexionesBD.resultSet(sentenciaDineroActual);
+                int saldoCuenta = Integer.parseInt(ConexionesBD.rs.getString(1));
+                ConexionesBD.rs.close();
+                int dineroAIngresar = Integer.parseInt(dinero);
+                String sentenciaDineroIntroducido = "update saldo set saldo='" + (saldoCuenta + dineroAIngresar) + "' where id='" + id + "';";
+                ConexionesBD.preparedStatement(sentenciaDineroIntroducido);
+                registrarOperacion("Ingreso en efectivo.");
+                JOptionPane.showMessageDialog(null, "Inserción realizada correctamente.");
+            }
         } catch (SQLException ex) {
-            System.out.println("Error al insertar dinero. " + ex);
+           JOptionPane.showMessageDialog(null,"Error al insertar dinero. " + ex);
         }
     }
 
@@ -146,7 +172,7 @@ public class Modelo {
             ConexionesBD.rs.close();
 
         } catch (SQLException ex) {
-            System.out.println("Error al sacar dinero. " + ex);
+           JOptionPane.showMessageDialog(null,"Error al sacar dinero. " + ex);
         }
         return dinero;
 
@@ -164,6 +190,8 @@ public class Modelo {
                     int dineroARetirar = Integer.parseInt(dinero);
                     String sentenciaDineroIntroducido = "update saldo set saldo='" + (saldoCuenta - dineroARetirar) + "' where id='" + id + "';";
                     ConexionesBD.preparedStatement(sentenciaDineroIntroducido);
+                    registrarOperacion("Retiración de saldo.");
+                    JOptionPane.showMessageDialog(null, "Dinero retirado correctamente.");
                 } else {
                     JOptionPane.showMessageDialog(null, "No hay suficiente saldo en la cuenta.", "ERROR", JOptionPane.INFORMATION_MESSAGE, null);
                 }
@@ -227,6 +255,8 @@ public class Modelo {
 
                             String sentenciaDineroAñadido = "update saldo set saldo='" + (dineroASumar + dineroATransferir) + "' where id='" + idUsuarioExistente + "';";
                             ConexionesBD.preparedStatement(sentenciaDineroAñadido);
+                            registrarOperacion("Transferencia bancaria.");
+                            JOptionPane.showMessageDialog(null, "Transacción realizada correctamente.");
                         } else {
                             JOptionPane.showMessageDialog(null, "El usuario no existe.", "ERROR", JOptionPane.INFORMATION_MESSAGE, null);
                         }
@@ -242,7 +272,54 @@ public class Modelo {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error en la transferencia.");
         }
+    }
+
+    public void borrarCuenta() {
+
+        String borrarUsuario = "delete from usuario where id = '" + id + "';";
+        String borrarSaldo = "delete from saldo where id = '" + id + "';";
+        String borrarOperaciones = "delete from operaciones where id = '" + id + "';";
+
+        ConexionesBD.preparedStatement(borrarUsuario);
+        ConexionesBD.preparedStatement(borrarSaldo);
+        ConexionesBD.preparedStatement(borrarOperaciones);
+        JOptionPane.showMessageDialog(null, "Cuenta eliminada correctamente.");
 
     }
 
+    public void registrarOperacion(String opr) {
+        Date fecha = new Date();
+        String insertar = "insert into operaciones values ('" + id + "', '" + opr + "', '" + fecha + "');";
+        ConexionesBD.preparedStatement(insertar);
+    }
+
+    public DefaultTableModel rellenarTablaOperaciones() {
+        DefaultTableModel mimodelo = new DefaultTableModel();
+        try {
+
+            String sentencia = "select * from operaciones where id = '" + id + "';";
+            
+            ConexionesBD.resultSet(sentencia);
+
+            for (int i = 0; i < ConexionesBD.rs.getMetaData().getColumnCount(); i++) {
+                mimodelo.addColumn(ConexionesBD.rs.getMetaData().getColumnName(i + 1));
+            }
+
+            while (ConexionesBD.rs.next()) {
+                Object[] list = new Object[ConexionesBD.rs.getMetaData().getColumnCount()];
+
+                for (int i = 0; i < ConexionesBD.rs.getMetaData().getColumnCount(); i++) {
+                    list[i] = ConexionesBD.rs.getString(i + 1);
+                }
+                mimodelo.addRow(list);
+            }
+            
+            ConexionesBD.rs.close();
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al cargar las operaciones.");
+        }
+
+        return mimodelo;
+    }
 }

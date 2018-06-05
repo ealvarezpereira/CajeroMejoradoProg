@@ -6,6 +6,8 @@
 package com.cajero.vista;
 
 import com.cajero.controlador.Controlador;
+import java.awt.Color;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -51,6 +53,18 @@ public class InterfazInicioSesion extends javax.swing.JFrame {
 
         etContraseña.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         etContraseña.setText("Contraseña:");
+
+        jTextUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextUsuarioMouseClicked(evt);
+            }
+        });
+
+        jPassword.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPasswordMouseClicked(evt);
+            }
+        });
 
         bIniciarSesion.setText("Iniciar sesión");
         bIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
@@ -162,16 +176,41 @@ public class InterfazInicioSesion extends javax.swing.JFrame {
     /*
         Clase InterfazInicioSesion, recoge lo que puso el usuario en los jTextField. Y los recoge el metodo "iniciarSesion" de la Clase Controlador.
      */
-    
     public static boolean mostrarVar;
-    
+
     private void bIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bIniciarSesionActionPerformed
-        if ((mostrarVar = obxControlador.iniciarSesion(jTextUsuario.getText(), jPassword.getText())) == true) {
-            obxC.init();
+
+        boolean v = true;
+
+        if (jTextUsuario.getText().isEmpty()) {
+            jTextUsuario.setBackground(Color.red);
+            v = false;
         }
-        this.setVisible(false);
-        obxC.setVisible(true);
+        if (jPassword.getText().isEmpty()) {
+            jPassword.setBackground(Color.red);
+            v = false;
+        }
+        
+        if (v == true) {
+
+            if ((mostrarVar = obxControlador.iniciarSesion(jTextUsuario.getText(), jPassword.getText())) == true) {
+                obxC.init();
+            }
+            this.setVisible(false);
+            obxC.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "Campo(s) vacío(s).");
+        }
+
     }//GEN-LAST:event_bIniciarSesionActionPerformed
+
+    private void jTextUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextUsuarioMouseClicked
+        jTextUsuario.setBackground(Color.white);
+    }//GEN-LAST:event_jTextUsuarioMouseClicked
+
+    private void jPasswordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPasswordMouseClicked
+        jPassword.setBackground(Color.white);
+    }//GEN-LAST:event_jPasswordMouseClicked
 
     /**
      * @param args the command line arguments
