@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
  * @author quique
  */
 public class ModificarUsuario extends javax.swing.JFrame {
-
+    
     Controlador objControlador = new Controlador();
 
     /**
@@ -145,25 +145,25 @@ public class ModificarUsuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     ArrayList<String> listaDatos = new ArrayList<String>();
-
+    
     public void recargarDatos() {
-
+        
         listaDatos = objControlador.modificarUsuarioCampos();
         jUsuario.setText(listaDatos.get(0));
         jNombre.setText(listaDatos.get(2));
         jApellido.setText(listaDatos.get(3));
     }
-
+    
 
     private void aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarActionPerformed
-        if (jUsuario.getText().isEmpty()||jApellido.getText().isEmpty()) {
+        if (jUsuario.getText().isEmpty() || jApellido.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "No pueden quedar campos vacíos.");
         }
         if (listaDatos.get(1).equals(jCtraAnt.getText())) {
-
+            
             if (!jCtraAnt.getText().equals(jCtraNuev.getText())) {
                 objControlador.modificarUsuario(jUsuario.getText(), jCtraNuev.getText(), jNombre.getText(), jApellido.getText());
-                        dispose();
+                this.setVisible(false);
             } else {
                 JOptionPane.showMessageDialog(null, "No puedes establecer la misma contraseña.");
             }
